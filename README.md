@@ -252,7 +252,7 @@ The demo focuses on a single furniture model and exposes the most representative
 
 The backend and database are intentionally removed from this version so the configurator can be hosted as a static site and tested immediately by a recruiter.
 
-## 🤔 Why Two Versions Exist
+## 🤔 Why Two Versions Exist❔
 The repository separates the complete engineering implementation from the public-facing demonstration.
 
 * `original/` → Complete full-stack implementation
