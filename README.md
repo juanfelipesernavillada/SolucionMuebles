@@ -280,7 +280,7 @@ This project demonstrates the ability to:
 * reason about combinatorial growth;
 * and reduce a full-stack application into a focused public demonstration.
 
-## ⚠️⚠️ Disclaimer
+## ⚠️⚠️⚠️ Disclaimer
 This repository is a sanitized portfolio representation of a project originally developed for a real furniture business.
 Private credentials, secrets, and other sensitive information are intentionally excluded.
 The public demo is intended for portfolio and technical evaluation purposes only.
