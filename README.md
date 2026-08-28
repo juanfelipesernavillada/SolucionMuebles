@@ -20,13 +20,10 @@
 
 ---
 
-## Project Overview
+### 📌 Project Overview
+> A full-stack furniture catalog and visual configuration system developed around a real-world manufacturing use case.
 
-The original goal was straightforward: provide a professional digital catalog for a furniture manufacturer.
-
-During development, however, the project evolved into a more ambitious system capable of representing configurable furniture rather than simply displaying static products.
-
-The resulting interaction can be summarized as:
+The project evolved from a conventional digital catalog into an interactive configuration experience where users can explore fabric collections, select upholstery options, choose different leg types, visualize available combinations, review product measurements, and initiate a quotation through WhatsApp.
 
 ```text
 Product
@@ -44,7 +41,7 @@ Quotation
 
 The key architectural challenge was not merely displaying products. It was creating a structure that could accommodate an increasing number of visual combinations without turning every combination into an independent hardcoded implementation.
 
-## Business Context
+## 💼 Business Context & Scalability Challenge
 The project was developed for a furniture manufacturing business whose products can be upholstered using shared fabric collections.
 
 This means that a fabric collection is not inherently tied to one product.
@@ -58,7 +55,7 @@ The same collection may be available across multiple furniture models, while the
 
 This requirement influenced the data model and the frontend configuration architecture from the beginning.
 
-## The Scalability Challenge
+## 🧮The Scalability Challenge
 A larger implementation could potentially involve:
 
 40 products
@@ -76,16 +73,16 @@ Product + Collection + Fabric + Leg Type
 from the visual asset itself.
 Instead of building a separate page for every possible combination, the system resolves the appropriate render from the current configuration.
 
-## Key Features
+## ⚡ Key Features
 
-**Product Catalog**
+**🛍️Product Catalog**
 * Product catalog organized by category.
 * Product detail pages.
 * Human-readable product URLs.
 * Structured product information.
 * Product measurements stored independently from presentation.
 
-**Visual Configuration**
+**🎨Visual Configuration**
 * Shared fabric collections.
 * Image-based fabric swatches instead of simple hexadecimal color circles.
 * Interactive fabric selection.
@@ -93,20 +90,20 @@ Instead of building a separate page for every possible combination, the system r
 * Dynamic render resolution.
 * Fallback behavior for unavailable assets.
 
-**Quotation Flow**
+**📱Quotation Flow**
 * Persistent quotation bag.
 * WhatsApp quotation flow.
 * Configuration-aware quotation messages.
 * Direct access to the selected product page.
 
-**Responsive Experience**
+**✅Responsive Experience**
 * Responsive layouts.
 * Mobile-oriented interaction.
 * Touch/swipe behavior.
 * Responsive product gallery.
 * Responsive fabric catalog modal.
 
-**Backend**
+**💽Backend**
 * Node.js.
 * Express.
 * PostgreSQL.
@@ -114,25 +111,25 @@ Instead of building a separate page for every possible combination, the system r
 * API routes.
 * Centralized error handling.
 
-**Security & Reliability**
+**🔒Security & Reliability**
 * Helmet.
 * Content Security Policy.
 * Rate limiting.
 * Input validation.
 * Environment-based configuration.
 
-**Testing**
+**🧪Testing**
 * Vitest.
 * Supertest.
 * Automated API testing.
 
-**Asset Pipeline**
+**🖼️Asset Pipeline**
 * Source image organization.
 * AI-assisted render workflow.
 * Image alignment and cleanup.
 * Sharp-based WebP optimization.
 
-## Technology Stack
+## 🛠️ Technology Stack
 
 | Layer | Technologies |
 |---|---|
@@ -147,7 +144,7 @@ Instead of building a separate page for every possible combination, the system r
 | **Image processing** | Sharp |
 | **Containerization** | Docker |
 
-## Architecture
+## 🏗️ Architecture
 At a high level:
 
 ```text
@@ -185,11 +182,11 @@ Render Resolution
 Frontend Image
 ```
 
-## Repository Structure
+## 📁 Repository Structure
 ```text
 SolucionMuebles/
 │
-├── original/
+├── 📂original/
 │   ├── assets-source/
 │   ├── db/
 │   ├── middleware/
@@ -202,7 +199,7 @@ SolucionMuebles/
 │   ├── views/
 │   └── README.md
 │
-├── portfolio-demo/
+├── 📂portfolio-demo/
 │   ├── css/
 │   ├── data/
 │   ├── images/
@@ -210,12 +207,12 @@ SolucionMuebles/
 │   ├── index.html
 │   └── README.md
 │
-├── .env.example
-├── .gitignore
+├── 📄.env.example
+├── 📄.gitignore
 └── README.md
 ```
 
-## Original Implementation
+## 🔄 Original Implementation
 The `original/` directory contains the sanitized version of the complete full-stack application developed for the original business use case.
 
 It preserves the engineering work performed during the project, including:
@@ -233,7 +230,7 @@ It preserves the engineering work performed during the project, including:
 
 Private credentials and sensitive environment information were removed before publication.
 
-## Portfolio Demo
+## 🎮 Portfolio Demo
 The `portfolio-demo/` directory contains a deliberately reduced static version of the project designed for public evaluation.
 
 The demo focuses on a single furniture model and exposes the most representative part of the system:
@@ -245,7 +242,7 @@ The demo focuses on a single furniture model and exposes the most representative
 
 The backend and database are intentionally removed from this version so the configurator can be hosted as a static site and tested immediately by a recruiter.
 
-## Why Two Versions Exist
+## 🤔 Why Two Versions Exist
 The repository separates the complete engineering implementation from the public-facing demonstration.
 
 * `original/` → Complete full-stack implementation
@@ -253,12 +250,12 @@ The repository separates the complete engineering implementation from the public
 
 This separation preserves the integrity of the original architecture while making the most interesting part of the application easy to evaluate.
 
-## Project Outcome
+## 📝 Project Outcome
 After the MVP was demonstrated, the business decided not to proceed with the production deployment.
 The reason was not a technical failure. The existing sales workflow was already performing well, and the business did not consider the additional operational overhead of launching and maintaining the digital catalog necessary at that stage.
 The completed implementation is therefore preserved as a software engineering case study and portfolio project.
 
-## What This Project Demonstrates
+## 🖼️ What This Project Demonstrates
 This project demonstrates the ability to:
 
 * translate business requirements into software architecture;
@@ -273,10 +270,10 @@ This project demonstrates the ability to:
 * reason about combinatorial growth;
 * and reduce a full-stack application into a focused public demonstration.
 
-## Disclaimer
+## ⚠️⚠️ Disclaimer
 This repository is a sanitized portfolio representation of a project originally developed for a real furniture business.
 Private credentials, secrets, and other sensitive information are intentionally excluded.
 The public demo is intended for portfolio and technical evaluation purposes only.
 
-## References
+## 📫 References
 Professional references are available upon request.
