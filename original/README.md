@@ -1,4 +1,8 @@
+<div align="center">
+
 # SolucionMuebles — Original Full-Stack Implementation
+
+</div>
 
 This directory contains the sanitized version of the original full-stack implementation developed for a real furniture manufacturing business.
 
