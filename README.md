@@ -252,10 +252,10 @@ The `portfolio-demo/` directory contains a deliberately reduced static version o
 
 The demo focuses on a single furniture model and exposes the most representative part of the system:
 
-1 product
+> **1 product
 × 14 fabrics
 × 3 leg types
-= 42 target combinations
+= 42 target combinations**
 
 The backend and database are intentionally removed from this version so the configurator can be hosted as a static site and tested immediately by a recruiter.
 
