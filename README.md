@@ -289,4 +289,4 @@ Private credentials, secrets, and other sensitive information are intentionally 
 The public demo is intended for portfolio and technical evaluation purposes only.
 
 ## 📫 References
-Professional references are available upon request.
+🤝 Professional references are available upon request. Connect via LinkedIn or explore additional software & cybersecurity repositories on my profile.
