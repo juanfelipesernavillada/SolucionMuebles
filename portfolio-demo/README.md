@@ -1,6 +1,6 @@
-# Furniture Configurator — Portfolio Demo
-
 <div align="center">
+
+# Furniture Configurator — Portfolio Demo
 
 [![VIEW DEMO](https://img.shields.io/badge/VIEW_DEMO-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white)](https://juanfelipesernavillada.github.io/SolucionMuebles/portfolio-demo/)
 
