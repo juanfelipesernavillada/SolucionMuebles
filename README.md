@@ -25,6 +25,8 @@
 
 The project evolved from a conventional digital catalog into an interactive configuration experience where users can explore fabric collections, select upholstery options, choose different leg types, visualize available combinations, review product measurements, and initiate a quotation through WhatsApp.
 
+<p align="center">
+
 ```text
 Product
    ↓
@@ -38,6 +40,8 @@ Visual Render
    ↓
 Quotation
 ```
+
+</div>
 
 The key architectural challenge was not merely displaying products. It was creating a structure that could accommodate an increasing number of visual combinations without turning every combination into an independent hardcoded implementation.
 
@@ -129,6 +133,8 @@ Instead of building a separate page for every possible combination, the system r
 * Image alignment and cleanup.
 * Sharp-based WebP optimization.
 
+<p align="center">
+
 ## 🛠️ Technology Stack
 
 | Layer | Technologies |
@@ -143,6 +149,10 @@ Instead of building a separate page for every possible combination, the system r
 | **Testing** | Vitest, Supertest |
 | **Image processing** | Sharp |
 | **Containerization** | Docker |
+
+</div>
+
+<p align="center">
 
 ## 🏗️ Architecture
 At a high level:
@@ -166,6 +176,10 @@ At a high level:
         Products     Categories    Measurements
 ```
 
+</div>
+
+<p align="center">
+
 The configuration layer sits on top of the product data:
 
 ```text
@@ -181,6 +195,10 @@ Render Resolution
         ↓
 Frontend Image
 ```
+
+</div>
+
+<p align="center">
 
 ## 📁 Repository Structure
 ```text
@@ -211,6 +229,8 @@ SolucionMuebles/
 ├── 📄.gitignore
 └── README.md
 ```
+
+</div>
 
 ## 🔄 Original Implementation
 The `original/` directory contains the sanitized version of the complete full-stack application developed for the original business use case.
