@@ -1,16 +1,22 @@
-<div align="center">
+<h1 align="center">🛋️ SolucionMuebles</h1>
 
-# SolucionMuebles
+<p align="center">
+  <strong>Full-Stack Furniture Configurator & Digital Catalog System</strong>
+</p>
 
-**Full-stack furniture configurator & digital catalog**
+<p align="center">
+  <a href="https://juanfelipesernavillada.github.io/SolucionMuebles/portfolio-demo/">
+    <img src="https://img.shields.io/badge/LIVE_DEMO-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white" alt="View Demo" />
+  </a>
+</p>
 
-[![VIEW DEMO](https://img.shields.io/badge/VIEW_DEMO-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white)](https://juanfelipesernavillada.github.io/SolucionMuebles/portfolio-demo/)
-
-</div>
-
-A full-stack furniture catalog and visual configuration system developed around a real-world manufacturing use case.
-
-The project evolved from a conventional digital catalog into an interactive configuration experience where users can explore fabric collections, select upholstery options, choose different leg types, visualize available combinations, review product measurements, and initiate a quotation through WhatsApp.
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+</p>
 
 ---
 
