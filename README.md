@@ -192,8 +192,6 @@ Frontend Image
 
 ## 📁 Repository Structure
 ```text
-<div align="center">
-
 SolucionMuebles/
 │
 ├── 📂original/
@@ -220,8 +218,6 @@ SolucionMuebles/
 ├── 📄.env.example
 ├── 📄.gitignore
 └── README.md
-</div>
-
 ```
 
 
