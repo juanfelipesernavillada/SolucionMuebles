@@ -1,8 +1,12 @@
+<div align="center">
+
 # SolucionMuebles
 
 **Full-stack furniture configurator & digital catalog**
 
 [![VIEW DEMO](https://img.shields.io/badge/VIEW_DEMO-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white)](https://juanfelipesernavillada.github.io/SolucionMuebles/portfolio-demo/)
+
+</div>
 
 A full-stack furniture catalog and visual configuration system developed around a real-world manufacturing use case.
 
