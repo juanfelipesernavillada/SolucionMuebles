@@ -1,0 +1,94 @@
+{
+  "colecciones": [
+    {
+      "id": "suiza",
+      "nombre": "Suiza",
+      "slug": "suiza",
+      "productos": [
+        "sala-click-clack-jumbo-completa"
+      ],
+      "variantes": [
+        {
+          "id": "suiza-blanco",
+          "nombre": "Blanco",
+          "imagen_recorte": "/images/telas/suiza/tela-blanco.webp"
+        },
+        {
+          "id": "suiza-beige",
+          "nombre": "Beige",
+          "imagen_recorte": "/images/telas/suiza/tela-beige.webp"
+        },
+        {
+          "id": "suiza-gris-claro",
+          "nombre": "Gris claro",
+          "imagen_recorte": "/images/telas/suiza/tela-gris-claro.webp"
+        },
+        {
+          "id": "suiza-gris-oscuro",
+          "nombre": "Gris oscuro",
+          "imagen_recorte": "/images/telas/suiza/tela-gris-oscuro.webp"
+        },
+        {
+          "id": "suiza-negro",
+          "nombre": "Negro",
+          "imagen_recorte": "/images/telas/suiza/tela-negro.webp"
+        }
+      ]
+    },
+    {
+      "id": "boreal",
+      "nombre": "Boreal",
+      "slug": "boreal",
+      "productos": [
+        "sala-click-clack-jumbo-completa"
+      ],
+      "variantes": [
+        {
+          "id": "boreal-lila-sutil",
+          "nombre": "Lila Sutil",
+          "imagen_recorte": "/images/telas/boreal/lila-sutil.webp"
+        },
+        {
+          "id": "boreal-niebla-grisal",
+          "nombre": "Niebla Grisal",
+          "imagen_recorte": "/images/telas/boreal/niebla-grisal.webp"
+        },
+        {
+          "id": "boreal-marmol-arena",
+          "nombre": "Mármol Arena",
+          "imagen_recorte": "/images/telas/boreal/marmol-arena.webp"
+        },
+        {
+          "id": "boreal-rojo-borgona",
+          "nombre": "Rojo Borgoña",
+          "imagen_recorte": "/images/telas/boreal/rojo-borgona.webp"
+        },
+        {
+          "id": "boreal-violeta-purpura",
+          "nombre": "Violeta Púrpura",
+          "imagen_recorte": "/images/telas/boreal/violeta-purpura.webp"
+        },
+        {
+          "id": "boreal-azul-cobalto",
+          "nombre": "Azul Cobalto Profundo",
+          "imagen_recorte": "/images/telas/boreal/azul-cobalto.webp"
+        },
+        {
+          "id": "boreal-lino-petreo",
+          "nombre": "Lino Pétreo",
+          "imagen_recorte": "/images/telas/boreal/lino-petreo.webp"
+        },
+        {
+          "id": "boreal-marmol-ahumado",
+          "nombre": "Mármol Ahumado",
+          "imagen_recorte": "/images/telas/boreal/marmol-ahumado.webp"
+        },
+        {
+          "id": "boreal-opalo-profundo",
+          "nombre": "Ópalo Profundo",
+          "imagen_recorte": "/images/telas/boreal/opalo-profundo.webp"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+<!-- ========================================================= -->
+<!-- CARRITO DRAWER (UNIFICADO) -->
+<!-- ========================================================= -->
+
+<!-- Overlay (fondo oscuro) -->
+<div
+    id="cart-overlay"
+    class="fixed inset-0 bg-black/50 z-[60] opacity-0 pointer-events-none transition-opacity duration-300"
+    aria-hidden="true"
+></div>
+
+<!-- Drawer (panel lateral deslizante) -->
+<aside
+    id="cart-drawer"
+    class="fixed top-0 right-0 h-full w-96 max-w-[85vw] bg-white z-[70] shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col"
+    aria-label="Tu bolsa de compras"
+>
+    <!-- Cabecera -->
+    <div class="p-6 border-b border-stone-200 flex justify-between items-center bg-stone-50 shrink-0">
+        <h2 class="font-serif text-xl text-stone-900">
+            Productos seleccionados
+        </h2>
+        <button
+            type="button"
+            data-action="toggle-cart"
+            class="text-2xl text-stone-400 hover:text-stone-900 transition"
+            aria-label="Cerrar bolsa"
+        >
+            &times;
+        </button>
+    </div>
+
+    <!-- Contenedor dinámico de productos -->
+    <div id="cart-items" class="flex-grow p-6 overflow-y-auto space-y-4">
+        <!-- Los items se inyectan vía JavaScript -->
+    </div>
+
+    <!-- Pie del Drawer (Botón WhatsApp) -->
+    <div class="p-6 border-t border-stone-200 bg-stone-50 shrink-0">
+        <p class="text-sm text-stone-500 mb-4 text-center leading-relaxed">
+            Selecciona los productos que deseas consultar. Al solicitar la cotización, un asesor te confirmará disponibilidad y tiempos de entrega.
+        </p>
+        <button
+            type="button"
+            data-action="send-whatsapp"
+            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition uppercase tracking-wide shadow-md"
+        >
+            <i class="bi bi-whatsapp text-xl"></i>
+            Cotizar por WhatsApp
+        </button>
+    </div>
+</aside>

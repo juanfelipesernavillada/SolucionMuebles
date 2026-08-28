@@ -1,0 +1,134 @@
+/* ============================================================
+   MUEBLES & DECORACIONES - DEMO CONFIGURADOR
+   Estilos personalizados (Tailwind ya está via CDN)
+   ============================================================ */
+
+/* Transiciones suaves para el modal */
+#modal-overlay {
+    transition: opacity 0.3s ease;
+}
+
+#modal-overlay .bg-white {
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover para tarjetas de tela */
+.fabric-card {
+    transition: all 0.25s ease;
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+
+.fabric-card:hover {
+    transform: translateY(-0.25rem) scale(1.02);
+    border-color: #1c1917;
+    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.fabric-card img {
+    transition: transform 0.5s ease;
+}
+
+.fabric-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Efecto de gancho para colecciones */
+.coleccion-selector {
+    transition: all 0.25s ease;
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+
+.coleccion-selector:hover {
+    transform: translateX(-0.25rem) scale(1.02);
+    border-color: #1c1917;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Animación de fade para imagen principal */
+.fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Escala personalizada para la imagen principal (no existe en Tailwind) */
+.scale-102 {
+    transform: scale(1.02);
+}
+
+/* Scrollbar personalizada para modal */
+#modal-overlay .overflow-y-auto::-webkit-scrollbar {
+    width: 6px;
+}
+
+#modal-overlay .overflow-y-auto::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+#modal-overlay .overflow-y-auto::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+}
+
+#modal-overlay .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* Ajustes para el contenedor de miniaturas */
+.thumb-btn {
+    transition: border-color 0.2s ease;
+}
+
+.thumb-btn:hover {
+    border-color: #78716c;
+}
+
+/* Estilo para el estado de selección de patas */
+input[name="pata"]:checked + div {
+    border-color: #1c1917;
+    background-color: #1c1917;
+    color: white;
+}
+
+/* Ajuste para que el gancho de colección no se corte en móvil */
+.coleccion-selector .absolute.-top-2\.5 {
+    z-index: 20;
+}
+
+/* Mejora de legibilidad para el estado de selección */
+#coleccion-seleccionada,
+#tela-seleccionada {
+    font-weight: 500;
+    color: #1c1917;
+}
+
+/* Hover suave para el botón de WhatsApp */
+#product-whatsapp {
+    transition: all 0.3s ease;
+}
+
+#product-whatsapp:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
+/* Responsive: ajuste de padding en móvil */
+@media (max-width: 640px) {
+    #modal-overlay .p-6 {
+        padding: 1rem;
+    }
+}

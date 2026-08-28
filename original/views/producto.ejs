@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        <%= producto.nombre %> | Muebles.
+    </title>
+
+    <!-- CSS de Tailwind compilado -->
+    <link
+        rel="stylesheet"
+        href="/css/output.css"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    >
+
+</head>
+
+
+<body class="bg-stone-50 text-stone-700 font-light min-h-screen flex flex-col">
+
+
+    <!-- ========================================================= -->
+    <!-- VISTAS DE GALERÍA (4 vistas placeholder) -->
+    <!-- ========================================================= -->
+
+    <%
+        const vistas = [
+            {
+                nombre: 'Frontal',
+                imagen: producto.imagen_url
+            },
+            {
+                nombre: 'Lateral derecha',
+                imagen: producto.imagen_url
+            },
+            {
+                nombre: 'Lateral izquierda',
+                imagen: producto.imagen_url
+            },
+            {
+                nombre: 'Trasera',
+                imagen: producto.imagen_url
+            }
+        ];
+    %>
+
+    <!-- ========================================================= -->
+    <!-- DATA CONTAINER (para JS) -->
+    <!-- ========================================================= -->
+
+    <!--
+        Datos consumidos por producto.js:
+        - vistas: array de objetos con nombre e imagen (placeholders)
+        - colecciones: array completo de colecciones (desde catalogo-colores.json)
+    -->
+    <div
+        id="product-data"
+        data-images="<%= JSON.stringify(vistas) %>"
+        data-colecciones="<%= JSON.stringify(colecciones || []) %>"
+        data-product-slug="<%= producto.slug %>"
+    ></div>
+
+
+    <!-- ========================================================= -->
+    <!-- NAVBAR -->
+    <!-- ========================================================= -->
+
+    <nav
+        class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200"
+    >
+
+        <div
+            class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
+        >
+
+            <!-- Volver -->
+
+            <div
+                class="flex items-center gap-2 text-sm text-stone-500 min-w-0"
+            >
+
+                <a
+                    href="/"
+                    class="hover:text-stone-900 transition flex items-center gap-2 shrink-0"
+                >
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Volver al catálogo
+
+                </a>
+
+            </div>
+
+
+            <!-- Nombre del negocio -->
+
+            <a
+                href="/"
+                class="text-2xl font-bold tracking-widest uppercase text-stone-400 text-center hidden sm:block"
+            >
+                Muebles.
+            </a>
+
+
+            <!-- Bolsa -->
+
+            <button
+                type="button"
+                data-action="toggle-cart"
+                class="relative p-2 hover:bg-stone-100 rounded-full transition"
+                aria-label="Abrir productos seleccionados"
+            >
+
+                <i class="bi bi-bag text-2xl"></i>
+
+                <span
+                    id="cart-count"
+                    class="absolute top-0 right-0 bg-orange-800 text-white text-[10px] rounded-full h-5 w-5 flex items-center justify-center font-bold"
+                >
+                    0
+                </span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ========================================================= -->
+    <!-- CONTENIDO PRINCIPAL (GRID DE 3 COLUMNAS) -->
+    <!-- ========================================================= -->
+
+    <main
+        class="flex-grow max-w-7xl mx-auto px-6 py-10 w-full"
+    >
+
+
+        <!-- ===================================================== -->
+        <!-- FILA PRINCIPAL: Miniaturas | Imagen | Panel -->
+        <!-- ===================================================== -->
+
+        <section
+            class="grid grid-cols-1 lg:grid-cols-[96px_minmax(0,1fr)_280px] gap-6 items-start"
+        >
+
+
+            <!-- ================================================ -->
+            <!-- COLUMNA IZQUIERDA: MINIATURAS (vistas) -->
+            <!-- ================================================ -->
+
+            <div
+                class="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible order-2 lg:order-1"
+                aria-label="Vistas del producto"
+            >
+
+                <% vistas.forEach((vista, index) => { %>
+
+                    <button
+                        type="button"
+                        class="thumb-btn shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-lg overflow-hidden border-2 <%= index === 0 ? 'border-stone-800' : 'border-transparent' %> bg-white transition"
+                        data-index="<%= index %>"
+                        aria-label="Ver <%= vista.nombre %>"
+                        title="<%= vista.nombre %>"
+                    >
+
+                        <img
+                            src="<%= vista.imagen %>"
+                            alt="<%= vista.nombre %>"
+                            class="w-full h-full object-cover"
+                        >
+
+                    </button>
+
+                <% }) %>
+
+            </div>
+
+
+            <!-- ================================================ -->
+            <!-- COLUMNA CENTRO: IMAGEN PRINCIPAL -->
+            <!-- ================================================ -->
+
+            <div
+                class="relative bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden order-1 lg:order-2 flex items-center justify-center h-[360px] sm:h-[420px] lg:h-[500px] lg:max-h-[65vh] group"
+            >
+                <img
+                    id="imagen-principal"
+                    src="<%= producto.imagen_url %>"
+                    alt="<%= producto.nombre %>"
+                    class="w-full h-full object-contain fade-in scale-102"
+                >
+
+                <!-- Flecha anterior -->
+                <button
+                    id="btn-prev"
+                    type="button"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-stone-800 w-10 h-10 rounded-full shadow-md flex items-center justify-center transition opacity-0 sm:group-hover:opacity-100"
+                    aria-label="Vista anterior"
+                >
+                    <i class="bi bi-chevron-left text-lg"></i>
+                </button>
+
+                <!-- Flecha siguiente -->
+                <button
+                    id="btn-next"
+                    type="button"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-stone-800 w-10 h-10 rounded-full shadow-md flex items-center justify-center transition opacity-0 sm:group-hover:opacity-100"
+                    aria-label="Vista siguiente"
+                >
+                    <i class="bi bi-chevron-right text-lg"></i>
+                </button>
+            </div>
+
+
+            <!-- ================================================ -->
+            <!-- COLUMNA DERECHA: ACCIONES + COLECCIONES -->
+            <!-- ================================================ -->
+
+            <aside
+                class="order-3 flex flex-col gap-4"
+            >
+
+                <!-- Categoría y nombre -->
+                <div>
+
+                    <p
+                        class="text-xs uppercase tracking-widest text-stone-400 mb-1"
+                    >
+
+                        <%= producto.categoria %>
+
+                        <% if (producto.subcategoria) { %>
+                            / <%= producto.subcategoria %>
+                        <% } %>
+
+                    </p>
+
+
+                    <h1
+                        id="product-name"
+                        class="text-2xl lg:text-3xl font-serif text-stone-900 leading-tight"
+                    >
+                        <%= producto.nombre %>
+                    </h1>
+
+                </div>
+
+
+                <!-- ============================================ -->
+                <!-- PANEL DE COLECCIONES (Ganchitos) -->
+                <!-- ============================================ -->
+
+                <div class="mt-2">
+                    <p class="text-xs uppercase tracking-widest text-stone-500 mb-2">
+                        Colecciones
+                    </p>
+                    
+                    <!-- GRID actualizado: 3 columnas, con padding superior (pt-3) para que no se corte el gancho -->
+                    <div class="grid grid-cols-3 gap-3 pt-3 pb-2">
+                        <% if (colecciones && colecciones.length > 0) { %>
+                            <% colecciones.forEach((col) => { %>
+                                <button
+                                    type="button"
+                                    class="coleccion-selector group relative w-full h-20 rounded-t-full rounded-b-lg shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-end p-2 hover:-translate-y-1 border border-stone-300 hover:border-stone-900 bg-stone-100"
+                                    data-coleccion-id="<%= col.id %>"
+                                    data-coleccion-nombre="<%= col.nombre %>"
+                                    data-coleccion-slug="<%= col.slug %>"
+                                >
+                                    <!-- Gancho superior (círculo) -->
+                                    <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full border-2 border-stone-400 bg-white shadow-sm z-20"></span>
+
+                                    <!-- Contenedor interno para la imagen con overflow-hidden (evita que el gancho se corte) -->
+                                    <div class="absolute inset-0 rounded-t-full rounded-b-lg overflow-hidden z-0">
+                                        <!-- Tela colgante (fondo) -->
+                                        <div class="absolute inset-0 opacity-70 group-hover:opacity-100 transition">
+                                            <img src="<%= col.variantes[0].imagen_recorte %>" alt="<%= col.nombre %>" class="w-full h-full object-cover">
+                                        </div>
+                                        <!-- Sombra sutil para dar profundidad -->
+                                        <div class="absolute inset-0 shadow-inner pointer-events-none"></div>
+                                    </div>
+
+                                    <!-- Nombre de la colección (sobre la tela) -->
+                                    <span class="relative z-10 bg-black/60 text-white text-[10px] sm:text-xs font-medium px-2 py-0.5 rounded-full backdrop-blur-sm truncate w-full text-center">
+                                        <%= col.nombre %>
+                                    </span>
+                                </button>
+                            <% }) %>
+                        <% } else { %>
+                            <p class="text-xs text-stone-400 col-span-3">No hay colecciones disponibles</p>
+                        <% } %>
+                    </div>
+                </div>
+
+
+                <!-- ============================================ -->
+                <!-- ESTADO DE SELECCIÓN (colección + tela) -->
+                <!-- ============================================ -->
+
+                <div class="mt-3 bg-stone-100/60 border border-stone-200 rounded-lg p-3 text-sm flex flex-col gap-1">
+                    <div class="flex justify-between items-center">
+                        <span class="text-stone-500 text-xs uppercase tracking-widest">Colección:</span>
+                        <span id="coleccion-seleccionada" class="font-medium text-stone-900">—</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-stone-500 text-xs uppercase tracking-widest">Tela:</span>
+                        <span id="tela-seleccionada" class="font-medium text-stone-900">—</span>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- SELECTOR DE PATAS (NUEVO) -->
+                <!-- ============================================ -->
+                <div class="mt-4 mb-2">
+                    <p class="text-xs uppercase tracking-widest text-stone-500 mb-3">
+                        Tipo de Pata
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <!-- Pata Madera -->
+                        <label class="cursor-pointer relative">
+                            <input type="radio" name="pata" value="madera" class="peer sr-only" checked>
+                            <div class="px-4 py-2 rounded-lg border border-stone-200 peer-checked:border-stone-900 peer-checked:bg-stone-900 peer-checked:text-white text-sm font-medium text-stone-600 bg-white hover:bg-stone-50 transition-all">
+                                Madera
+                            </div>
+                        </label>
+
+                        <!-- Pata Aluminio -->
+                        <label class="cursor-pointer relative">
+                            <input type="radio" name="pata" value="aluminio" class="peer sr-only">
+                            <div class="px-4 py-2 rounded-lg border border-stone-200 peer-checked:border-stone-900 peer-checked:bg-stone-900 peer-checked:text-white text-sm font-medium text-stone-600 bg-white hover:bg-stone-50 transition-all">
+                                Aluminio
+                            </div>
+                        </label>
+
+                        <!-- Pata Plástico -->
+                        <label class="cursor-pointer relative">
+                            <input type="radio" name="pata" value="plastico" class="peer sr-only">
+                            <div class="px-4 py-2 rounded-lg border border-stone-200 peer-checked:border-stone-900 peer-checked:bg-stone-900 peer-checked:text-white text-sm font-medium text-stone-600 bg-white hover:bg-stone-50 transition-all">
+                                Plástico
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- BOTONES DE ACCIÓN -->
+                <!-- ============================================ -->
+
+                <!-- Añadir a bolsa -->
+                <button
+                    type="button"
+                    data-action="add-to-cart"
+                    data-product-id="<%= producto.id %>"
+                    data-product-name="<%= producto.nombre %>"
+                    class="w-full bg-stone-900 hover:bg-stone-800 text-white rounded-lg py-3 px-4 flex items-center justify-center gap-2 transition mt-2"
+                >
+
+                    <i class="bi bi-plus-lg"></i>
+
+                    Añadir a la bolsa
+
+                </button>
+
+
+                <!-- WhatsApp -->
+            <a id="product-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-5 rounded-lg transition shadow-md uppercase tracking-wide">
+                <i class="bi bi-whatsapp text-xl"></i>
+                Solicitar cotización
+            </a>
+
+
+                <p
+                    class="text-xs text-stone-400 text-center"
+                >
+                    Te ayudaremos con disponibilidad, colores y cotización.
+                </p>
+
+            </aside>
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- COLORES (desde producto_colores) -->
+        <!-- ===================================================== -->
+
+        <% if (colores && colores.length > 0) { %>
+
+            <section
+                class="mt-10 border-t border-stone-200 pt-8"
+            >
+
+                <h2
+                    class="text-xs font-bold uppercase tracking-widest text-stone-500 mb-4"
+                >
+                    Colores disponibles
+                </h2>
+
+
+                <div class="flex flex-wrap items-center gap-4">
+
+                    <% colores.forEach(color => { %>
+
+                        <button
+                            type="button"
+                            class="w-9 h-9 rounded-full border-2 border-white shadow-sm ring-1 ring-stone-200 hover:ring-2 transition color-option"
+                            style="background-color: <%= color.hex %>;"
+                            title="<%= color.nombre %>"
+                            aria-label="<%= color.nombre %>"
+                        >
+                        </button>
+
+                    <% }) %>
+
+
+                    <span
+                        class="text-sm text-stone-500"
+                    >
+                        <%= colores.length %> colores disponibles
+                    </span>
+
+                </div>
+
+            </section>
+
+        <% } %>
+
+
+        <!-- ===================================================== -->
+        <!-- INFORMACIÓN DEL PRODUCTO -->
+        <!-- ===================================================== -->
+
+        <% if (
+            producto.medidas_estructuradas &&
+            typeof producto.medidas_estructuradas === 'object' &&
+            Object.keys(producto.medidas_estructuradas).length > 0
+        ) { %>
+
+            <section
+                class="max-w-4xl mx-auto mt-10 bg-white border border-stone-200 rounded-xl p-6"
+            >
+
+                <h2
+                    class="text-xs font-bold uppercase tracking-widest text-stone-500 mb-5"
+                >
+                    Medidas
+                </h2>
+
+                <dl
+                    class="grid grid-cols-2 gap-4"
+                >
+
+                    <% Object.entries(producto.medidas_estructuradas).forEach(([nombre, valor]) => { %>
+
+                        <div
+                            class="bg-stone-50 border border-stone-200 rounded-lg p-4"
+                        >
+
+                            <dt
+                                class="text-xs uppercase tracking-widest text-stone-400 mb-2"
+                            >
+                                <%= nombre %>
+                            </dt>
+
+                            <dd
+                                class="text-xl font-serif text-stone-900"
+                            >
+                                <%= valor %>
+                            </dd>
+
+                        </div>
+
+                    <% }) %>
+
+                </dl>
+
+            </section>
+
+        <% } %>
+
+
+        <!-- ===================================================== -->
+        <!-- FICHA TÉCNICA -->
+        <!-- ===================================================== -->
+
+        <% if (
+            producto.medidas ||
+            producto.material ||
+            producto.peso ||
+            producto.garantia
+        ) { %>
+
+            <section
+                class="max-w-4xl mx-auto mt-10 bg-white border border-stone-200 rounded-xl p-6"
+            >
+
+                <h2
+                    class="text-xs font-bold uppercase tracking-widest text-stone-500 mb-5"
+                >
+                    Ficha técnica
+                </h2>
+
+
+                <dl
+                    class="grid grid-cols-2 md:grid-cols-4 gap-5 text-sm"
+                >
+
+                    <% if (producto.medidas) { %>
+
+                        <div>
+
+                            <dt class="text-stone-500 font-medium">
+                                Medidas
+                            </dt>
+
+                            <dd class="text-stone-800 mt-1">
+                                <%= producto.medidas %>
+                            </dd>
+
+                        </div>
+
+                    <% } %>
+
+
+                    <% if (producto.material) { %>
+
+                        <div>
+
+                            <dt class="text-stone-500 font-medium">
+                                Material
+                            </dt>
+
+                            <dd class="text-stone-800 mt-1">
+                                <%= producto.material %>
+                            </dd>
+
+                        </div>
+
+                    <% } %>
+
+
+                    <% if (producto.peso) { %>
+
+                        <div>
+
+                            <dt class="text-stone-500 font-medium">
+                                Peso
+                            </dt>
+
+                            <dd class="text-stone-800 mt-1">
+                                <%= producto.peso %>
+                            </dd>
+
+                        </div>
+
+                    <% } %>
+
+
+                    <% if (producto.garantia) { %>
+
+                        <div>
+
+                            <dt class="text-stone-500 font-medium">
+                                Garantía
+                            </dt>
+
+                            <dd class="text-stone-800 mt-1">
+                                <%= producto.garantia %>
+                            </dd>
+
+                        </div>
+
+                    <% } %>
+
+                </dl>
+
+            </section>
+
+        <% } %>
+
+
+        <!-- ===================================================== -->
+        <!-- MODAL DE VISTA PREVIA (catálogo en cuadrícula) -->
+        <!-- ===================================================== -->
+        <div id="modal-catalogo" class="hidden fixed inset-0 bg-black/50 z-[80] flex items-center justify-center p-4 opacity-0 transition-opacity duration-300" aria-hidden="true">
+            <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[80vh] overflow-y-auto p-6 transform scale-95 transition-transform duration-300">
+                
+                <!-- Encabezado -->
+                <div class="flex justify-between items-center mb-4 sticky top-0 bg-white z-10 pb-2 border-b border-stone-100">
+                    <h2 id="modal-titulo" class="text-xl font-serif text-stone-800">Catálogo de telas</h2>
+                    <button type="button" id="btn-cerrar-modal" class="text-2xl text-stone-400 hover:text-stone-900 transition">&times;</button>
+                </div>
+                <p id="modal-subtitulo" class="text-sm text-stone-500 mb-6">Colección: —</p>
+                
+                <!-- Contenedor en Cuadrícula (Grid) -->
+                <div id="modal-telas-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <!-- Las tarjetas cuadradas se llenan dinámicamente con JavaScript -->
+                </div>
+
+                <!-- Mensaje si no hay telas -->
+                <p id="modal-sin-telas" class="text-sm text-stone-400 text-center py-8 hidden">
+                    No hay telas disponibles en esta colección.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- ===================================================== -->
+        <!-- PRODUCTOS SIMILARES (CARRUSEL) -->
+        <!-- ===================================================== -->
+
+        <% if (relacionados && relacionados.length > 0) { %>
+
+            <section
+                class="mt-16 pt-10 border-t border-stone-200"
+                aria-labelledby="productos-similares-title"
+            >
+
+                <div
+                    class="flex items-end justify-between mb-8"
+                >
+
+                    <div>
+
+                        <p
+                            class="text-xs uppercase tracking-widest text-stone-400 mb-2"
+                        >
+                            Explora más
+                        </p>
+
+                        <h2
+                            id="productos-similares-title"
+                            class="text-3xl font-serif text-stone-900"
+                        >
+                            Productos similares
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Viewport con "group" para activar las flechas al hacer hover -->
+                <div
+                    id="relacionados-viewport"
+                    class="relative overflow-hidden group"
+                >
+
+                    <!-- Track -->
+
+                    <div
+                        id="relacionados-track"
+                        class="flex gap-4"
+                    >
+
+                        <% relacionados.forEach(rel => { %>
+
+                            <article
+                                class="relacionado-item w-full md:w-1/2 lg:w-1/4 shrink-0"
+                            >
+
+                                <div
+                                    class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition"
+                                >
+
+                                    <!-- Imagen -->
+
+                                    <a
+                                        href="/producto/<%= rel.slug %>"
+                                        class="block aspect-square overflow-hidden bg-stone-100 group"
+                                    >
+
+                                        <img
+                                            src="<%= rel.imagen_url %>"
+                                            alt="<%= rel.nombre %>"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                        >
+
+                                    </a>
+
+
+                                    <!-- Información -->
+
+                                    <div class="p-4">
+
+                                        <h3
+                                            class="text-sm font-medium text-stone-800 leading-snug min-h-[40px]"
+                                        >
+                                            <%= rel.nombre %>
+                                        </h3>
+
+
+                                        <a
+                                            href="/producto/<%= rel.slug %>"
+                                            class="inline-flex items-center gap-2 mt-3 text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 transition"
+                                        >
+
+                                            Ver detalles
+
+                                            <i class="bi bi-arrow-right"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </article>
+
+                        <% }) %>
+
+                    </div>
+
+
+                    <!-- Flecha anterior (solo hover en desktop) -->
+                    <button
+                        id="rel-prev"
+                        type="button"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-stone-200 shadow-md flex items-center justify-center text-stone-700 hover:bg-stone-50 transition z-10 opacity-0 sm:group-hover:opacity-100"
+                        aria-label="Productos anteriores"
+                    >
+
+                        <i class="bi bi-chevron-left"></i>
+
+                    </button>
+
+
+                    <!-- Flecha siguiente (solo hover en desktop) -->
+                    <button
+                        id="rel-next"
+                        type="button"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-stone-200 shadow-md flex items-center justify-center text-stone-700 hover:bg-stone-50 transition z-10 opacity-0 sm:group-hover:opacity-100"
+                        aria-label="Productos siguientes"
+                    >
+
+                        <i class="bi bi-chevron-right"></i>
+
+                    </button>
+
+                </div>
+
+
+                <!-- Indicadores -->
+
+                <div
+                    id="rel-indicadores"
+                    class="flex justify-center items-center gap-2 mt-6"
+                    aria-label="Páginas de productos similares"
+                ></div>
+
+            </section>
+
+        <% } %>
+
+
+    </main>
+
+
+    <!-- ========================================================= -->
+    <!-- CARRITO DRAWER (UNIFICADO) -->
+    <!-- ========================================================= -->
+    <%- include('partials/drawer') %>
+
+
+    <!-- ========================================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================================= -->
+
+    <footer
+        class="bg-stone-900 text-stone-400 py-16 mt-20 border-t-4 border-orange-900"
+    >
+
+        <div
+            class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12"
+        >
+
+            <!-- Información -->
+
+            <div>
+
+                <h4
+                    class="text-white font-bold uppercase tracking-widest mb-6 text-xs"
+                >
+                    Muebles.
+                </h4>
+
+                <p
+                    class="text-sm leading-relaxed"
+                >
+                    Diseño artesanal colombiano para hogares modernos.
+                    Calidad garantizada en cada pieza.
+                </p>
+
+            </div>
+
+
+            <!-- Atención -->
+            <div>
+                <h4
+                    class="text-white font-bold uppercase tracking-widest mb-6 text-xs"
+                >
+                    Atención al Cliente
+                </h4>
+
+                <ul class="space-y-3 text-sm">
+                    <li>
+                        <i class="bi bi-geo-alt me-2"></i>
+                        Calle 123 siempre viva, Ciudad
+                    </li>
+
+                    <li>
+                        <i class="bi bi-geo-alt me-2"></i>
+                        Calle 123 siempre viva, Ciudad
+                    </li>
+
+                    <li>
+                        <i class="bi bi-envelope me-2"></i>
+                        contacto@ejemplo.com
+                    </li>
+
+                    <li>
+                        <i class="bi bi-whatsapp me-2"></i>
+                        +57 300 000 0000
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Redes -->
+            <div>
+                <h4
+                    class="text-white font-bold uppercase tracking-widest mb-6 text-xs"
+                >
+                    Síguenos
+                </h4>
+
+                <div class="flex gap-5 text-xl">
+                    <a
+                        href="#"
+                        class="hover:text-orange-500 transition"
+                        aria-label="Instagram"
+                    >
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        class="hover:text-orange-500 transition"
+                        aria-label="Facebook"
+                    >
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        class="hover:text-orange-500 transition"
+                        aria-label="TikTok"
+                    >
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        class="hover:text-orange-500 transition"
+                        aria-label="WhatsApp"
+                    >
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================================================= -->
+
+    <script
+        src="/js/producto.js"
+        defer
+    ></script>
+
+    <script
+        src="/js/main.js"
+        defer
+    ></script>
+
+
+</body>
+</html>

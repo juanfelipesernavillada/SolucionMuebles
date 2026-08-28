@@ -1,0 +1,199 @@
+{
+  "producto": {
+    "id": 1,
+    "nombre": "Sala Click Clack Jumbo Completa",
+    "slug": "sala-click-clack-jumbo-completa",
+    "categoria": "Salas",
+    "categoria_slug": "salas",
+    "subcategoria": "Sofá Camas",
+    "descripcion": "Sala Click Clack Jumbo Completa con configurador visual de telas y tipos de pata.",
+    "imagen_principal": "images/productos/sala-click-clack-jumbo-completa/principal.webp",
+    "activo": true,
+    "medidas": {
+      "Largo del Sofá": "1.80 m",
+      "Ancho de las Sillas": "70 cm"
+    }
+  },
+  "colecciones": [
+    {
+      "id": "suiza",
+      "nombre": "Suiza",
+      "slug": "suiza",
+      "variantes": [
+        {
+          "id": "muestra-01",
+          "nombre": "Blanco",
+          "imagen_recorte": "images/telas/suiza/tela-blanco.webp"
+        },
+        {
+          "id": "suiza-beige",
+          "nombre": "Beige",
+          "imagen_recorte": "images/telas/suiza/tela-beige.webp"
+        },
+        {
+          "id": "suiza-gris-claro",
+          "nombre": "Gris claro",
+          "imagen_recorte": "images/telas/suiza/tela-gris-claro.webp"
+        },
+        {
+          "id": "suiza-gris-oscuro",
+          "nombre": "Gris oscuro",
+          "imagen_recorte": "images/telas/suiza/tela-gris-oscuro.webp"
+        },
+        {
+          "id": "suiza-negro",
+          "nombre": "Negro",
+          "imagen_recorte": "images/telas/suiza/tela-negro.webp"
+        }
+      ]
+    },
+    {
+      "id": "boreal",
+      "nombre": "Boreal",
+      "slug": "boreal",
+      "variantes": [
+        {
+          "id": "muestra-01",
+          "nombre": "Lila Sutil",
+          "imagen_recorte": "images/telas/boreal/lila-sutil.webp"
+        },
+        {
+          "id": "boreal-02",
+          "nombre": "Niebla Grisal",
+          "imagen_recorte": "images/telas/boreal/niebla-grisal.webp"
+        },
+        {
+          "id": "boreal-03",
+          "nombre": "Mármol Arena",
+          "imagen_recorte": "images/telas/boreal/marmol-arena.webp"
+        },
+        {
+          "id": "boreal-04",
+          "nombre": "Rojo Borgoña",
+          "imagen_recorte": "images/telas/boreal/rojo-borgona.webp"
+        },
+        {
+          "id": "boreal-05",
+          "nombre": "Violeta Púrpura",
+          "imagen_recorte": "images/telas/boreal/violeta-purpura.webp"
+        },
+        {
+          "id": "boreal-06",
+          "nombre": "Azul Cobalto Profundo",
+          "imagen_recorte": "images/telas/boreal/azul-cobalto.webp"
+        },
+        {
+          "id": "boreal-07",
+          "nombre": "Lino Pétreo",
+          "imagen_recorte": "images/telas/boreal/lino-petreo.webp"
+        },
+        {
+          "id": "boreal-08",
+          "nombre": "Mármol Ahumado",
+          "imagen_recorte": "images/telas/boreal/marmol-ahumado.webp"
+        },
+        {
+          "id": "boreal-09",
+          "nombre": "Ópalo Profundo",
+          "imagen_recorte": "images/telas/boreal/opalo-profundo.webp"
+        }
+      ]
+    }
+  ],
+  "patas": [
+    {
+      "id": "madera",
+      "nombre": "Madera"
+    },
+    {
+      "id": "aluminio",
+      "nombre": "Aluminio"
+    },
+    {
+      "id": "plastico",
+      "nombre": "Plástico"
+    }
+  ],
+  "renders": {
+    "sala-click-clack-jumbo-completa": {
+      "Suiza": {
+        "Blanco": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/suiza/muestra-01.webp",
+          "Aluminio": null,
+          "Plástico": null
+        },
+        "Beige": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/suiza/muestra-02.webp",
+          "Aluminio": null,
+          "Plástico": null
+        },
+        "Gris claro": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/suiza/muestra-03.webp",
+          "Aluminio": null,
+          "Plástico": null
+        },
+        "Gris oscuro": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/suiza/muestra-04.webp",
+          "Aluminio": null,
+          "Plástico": null
+        },
+        "Negro": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/suiza/muestra-05.webp",
+          "Aluminio": null,
+          "Plástico": null
+        }
+      },
+      "Boreal": {
+        "Lila Sutil": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/boreal/patas/madera/muestra-01.webp",
+          "Aluminio": "images/productos/sala-click-clack-jumbo-completa/boreal/patas/aluminio/muestra-01.webp",
+          "Plástico": "images/productos/sala-click-clack-jumbo-completa/boreal/patas/plastico/muestra-01.webp"
+        },
+        "Niebla Grisal": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/boreal/patas/madera/muestra-02.webp",
+          "Aluminio": null,
+          "Plástico": null
+        },
+        "Mármol Arena": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/boreal/patas/madera/muestra-03.webp",
+          "Aluminio": null,
+          "Plástico": null
+        },
+        "Rojo Borgoña": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/boreal/patas/madera/muestra-04.webp",
+          "Aluminio": null,
+          "Plástico": null
+        },
+        "Violeta Púrpura": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/boreal/patas/madera/muestra-05.webp",
+          "Aluminio": null,
+          "Plástico": null
+        },
+        "Azul Cobalto Profundo": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/boreal/patas/madera/muestra-06.webp",
+          "Aluminio": null,
+          "Plástico": null
+        },
+        "Lino Pétreo": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/boreal/patas/madera/muestra-07.webp",
+          "Aluminio": null,
+          "Plástico": null
+        },
+        "Mármol Ahumado": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/boreal/patas/madera/muestra-08.webp",
+          "Aluminio": null,
+          "Plástico": null
+        },
+        "Ópalo Profundo": {
+          "Madera": "images/productos/sala-click-clack-jumbo-completa/boreal/patas/madera/muestra-09.webp",
+          "Aluminio": null,
+          "Plástico": null
+        }
+      }
+    }
+  },
+  "whatsapp": {
+    "numero": "573000000000",
+    "mensaje_base": "Hola, quisiera cotizar el producto: "
+  }
+}

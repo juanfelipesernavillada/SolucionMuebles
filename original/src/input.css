@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* ============================================================
+   ANIMACIONES
+   ============================================================ */
+
+/* Animación de entrada suave para la imagen principal */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* ============================================================
+   COLORES (desde producto_colores)
+   ============================================================ */
+
+.color-dot {
+  background-color: var(--color-hex, #e5e5e5);
+}
+
+/* ============================================================
+   TARJETAS DE TELAS (modal tipo muestrario en cuadrícula)
+   ============================================================ */
+.fabric-card {
+  transition: all 0.25s ease;
+  cursor: pointer;
+  background-color: #f5f5f5;
+}
+
+/* Efecto hover interactivo: se eleva ligeramente y aplica una sombra elegante */
+.fabric-card:hover {
+  transform: translateY(-0.25rem) scale(1.02);
+  border-color: #1c1917;
+  box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.fabric-card img {
+  transition: transform 0.5s ease;
+}
+
+.fabric-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ============================================================
+   GANCHO DE COLECCIONES (versión "percha" – panel lateral)
+   ============================================================ */
+
+.coleccion-selector {
+  transition: all 0.25s ease;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  position: relative;
+  overflow: visible; /* permite que el círculo sobresalga */
+}
+
+/* Efecto hover: desplazamiento lateral y escala */
+.coleccion-selector:hover {
+  transform: translateX(-0.5rem) scale(1.05);
+  transform-origin: right center;
+  border-color: #1c1917;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Círculo superior (el "gancho") */
+.coleccion-selector .absolute.-top-2 {
+  transition: all 0.2s ease;
+}
+.coleccion-selector:hover .absolute.-top-2 {
+  border-color: #1c1917;
+  transform: scale(1.1);
+}
+
+/* Imagen de la tela colgante */
+.coleccion-selector .absolute.inset-0 img {
+  transition: transform 0.4s ease;
+}
+.coleccion-selector:hover .absolute.inset-0 img {
+  transform: scale(1.05);
+}
+
+/* Sombra interior para efecto de profundidad */
+.coleccion-selector .shadow-inner {
+  box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.08);
+}
