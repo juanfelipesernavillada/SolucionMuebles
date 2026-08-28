@@ -61,7 +61,7 @@ This requirement influenced the data model and the frontend configuration archit
 ## 🧮The Scalability Challenge
 A larger implementation could potentially involve:
 
-# > **40 products × 5 fabric collections × 9 fabrics × 3 leg types = 5,400 potential visual combinations**
+##  >**40 products × 5 fabric collections × 9 fabrics × 3 leg types = 5,400 potential visual combinations**
 
 Additional configuration dimensions, such as cushion styles or other components, would increase the number of possible combinations even further.
 
