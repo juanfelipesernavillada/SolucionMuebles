@@ -1,6 +1,10 @@
 # Furniture Configurator — Portfolio Demo
 
+<div center> 
+
 [![VIEW DEMO](https://img.shields.io/badge/VIEW_DEMO-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white)](https://juanfelipesernavillada.github.io/SolucionMuebles/portfolio-demo/)
+
+</div>
 
 A focused static demonstration of the visual configurator originally developed as part of a full-stack furniture catalog.
 
