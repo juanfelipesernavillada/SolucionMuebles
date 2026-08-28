@@ -25,7 +25,7 @@
 
 The project evolved from a conventional digital catalog into an interactive configuration experience where users can explore fabric collections, select upholstery options, choose different leg types, visualize available combinations, review product measurements, and initiate a quotation through WhatsApp.
 
-<p align="center">
+<div align="center">
 
 ```text
 Product
@@ -76,6 +76,8 @@ Product + Collection + Fabric + Leg Type
 
 from the visual asset itself.
 Instead of building a separate page for every possible combination, the system resolves the appropriate render from the current configuration.
+
+<div align="center">
 
 ## ⚡ Key Features
 
@@ -133,7 +135,9 @@ Instead of building a separate page for every possible combination, the system r
 * Image alignment and cleanup.
 * Sharp-based WebP optimization.
 
-<p align="center">
+</div>
+
+<div align="center">
 
 ## 🛠️ Technology Stack
 
@@ -152,7 +156,7 @@ Instead of building a separate page for every possible combination, the system r
 
 </div>
 
-<p align="center">
+<div align="center">
 
 ## 🏗️ Architecture
 At a high level:
@@ -178,7 +182,7 @@ At a high level:
 
 </div>
 
-<p align="center">
+<div align="center">
 
 The configuration layer sits on top of the product data:
 
@@ -198,7 +202,7 @@ Frontend Image
 
 </div>
 
-<p align="center">
+<div align="center">
 
 ## 📁 Repository Structure
 ```text
