@@ -193,39 +193,38 @@ Frontend Image
 ```text
 SolucionMuebles/
 │
-├── 📂original/
+├── 📂 original/                 # ⚙️ Full-stack backend & dynamic rendering implementation
 │   ├── 📂 assets-source/        # Raw source images and unoptimized assets
 │   ├── 📂 db/                   # PostgreSQL connection pool and queries
-│   ├── 📂 middleware/           # Custom Express middleware (Security, CSP, Validation)
+│   ├── 📂 middleware/           # 🛡️ Custom Express middleware (Security, CSP, Validation)
 │   ├── 📂 migrations/           # Database schema setup and migration scripts
 │   ├── 📂 public/               # Served static files (optimized WebP images, CSS, client JS)
 │   ├── 📂 routes/               # Express route controllers (API endpoints and Web pages)
 │   ├── 📂 scripts/              # Build utilities (e.g., Sharp image optimization pipeline)
 │   ├── 📂 src/                  # Core application logic and utilities
-│   ├── 📂 tests/                # Automated test suites (Vitest + Supertest)
+│   ├── 📂 tests/                # 🧪 Automated test suites (Vitest + Supertest)
 │   ├── 📂 views/                # EJS server-side rendering templates
-│   │
-│   ├── 📄 .dockerignore         # Docker exclusion rules to optimize image size 
-│   ├── 📄 Dockerfile            # Containerization instructions for deployment
+│   ├── 📄 .dockerignore         # Docker exclusion rules to optimize image size
+│   ├── 📄 Dockerfile            # 🐳 Containerization instructions for deployment
 │   ├── 📄 README.md             # Original project documentation
 │   ├── 📄 catalogo-colores.json # Static configuration mapping for fabric colors
 │   ├── 📄 catalogo-maestro.json # Main product and combination matrix data
 │   ├── 📄 package-lock.json     # Locked dependency tree for deterministic installs
 │   ├── 📄 package.json          # Node.js dependencies and npm run scripts
-│   ├── 📄 server.js             # Application entry point and server initialization
+│   ├── 📄 server.js             # 🚀 Application entry point and server initialization
 │   └── 📄 tailwind.config.js    # Tailwind CSS configuration and custom theme rules
 │
-├── 📂portfolio-demo/
-│   ├── css/
-│   ├── data/
-│   ├── images/
-│   ├── js/
-│   ├── index.html
-│   └── README.md
+├── 📂 portfolio-demo/           # 🎨 Static, decoupled frontend for GitHub Pages
+│   ├── 📂 css/                  # Compiled styles for the demo interface
+│   ├── 📂 data/                 # 🗂️ Static JSON data simulating the backend API response
+│   ├── 📂 images/               # Optimized image assets for the UI components
+│   ├── 📂 js/                   # Client-side logic, state management, and DOM manipulation
+│   ├── 📄 index.html            # 🌟 Main entry point for the interactive catalog demo
+│   └── 📄 README.md             # Demo-specific documentation and deployment instructions
 │
-├── 📄.env.example
-├── 📄.gitignore
-└── README.md
+├── 📄 .env.example              # ⚠️ Environment variables template (Security best practices)
+├── 📄 .gitignore                # Git exclusion rules for node_modules and secrets
+└── 📄 README.md                 # 📖 Main repository documentation (You are here)
 ```
 
 
