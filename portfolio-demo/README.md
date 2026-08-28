@@ -1,142 +1,247 @@
-# Configurador Visual de Muebles — Portfolio Demo
+# Furniture Configurator — Portfolio Demo
 
-Demo interactiva de un sistema de configuración visual para muebles.
+[![VIEW DEMO](https://img.shields.io/badge/VIEW_DEMO-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white)](https://juanfelipesernavillada.github.io/SolucionMuebles/portfolio-demo/)
 
-Este proyecto fue desarrollado originalmente como un MVP full-stack para un negocio real de fabricación de muebles y posteriormente reducido y adaptado como demostración técnica para portfolio.
+A focused static demonstration of the visual configurator originally developed as part of a full-stack furniture catalog.
 
-## Objetivo
+This version isolates the most representative interaction of the original project so it can be evaluated directly in a browser without requiring a database or backend server.
 
-El objetivo de esta demo es mostrar cómo una interfaz puede permitir al usuario configurar un producto mediante diferentes dimensiones de personalización:
+---
 
-- Colección de telas
-- Tela específica
-- Tipo de pata
-- Render visual asociado
-- Medidas del producto
-- Solicitud de cotización por WhatsApp
+## Purpose
 
-La demo utiliza un único producto para concentrar la experiencia y mostrar claramente la arquitectura de configuración.
+The original application evolved from a conventional furniture catalog into an interactive product configurator.
 
-## Problema de escalabilidad
-
-El reto principal del proyecto no era solamente construir una página de productos, sino diseñar una estructura capaz de manejar múltiples combinaciones visuales.
-
-Un catálogo más grande podría llegar a representar:
+This demo focuses exclusively on that configuration experience:
 
 ```text
-40 productos
-× 5 colecciones
-× 9 telas
-× 3 tipos de pata
-= 5.400 combinaciones visuales
+Product
+   ↓
+Collection
+   ↓
+Fabric
+   ↓
+Leg Type
+   ↓
+Visual Render
 ```
 
-Agregar nuevas configuraciones, como cojines, tipos de brazos o materiales adicionales, incrementaría todavía más el número de combinaciones.
+The objective is to demonstrate how a product can be modeled as a combination of reusable configuration dimensions rather than as a collection of unrelated product pages.
 
-Por este motivo, la arquitectura separa:
+## Why This Demo Exists
+The original implementation uses a complete full-stack architecture: Node.js, Express, EJS, PostgreSQL, Security middleware, API routes, and Automated tests.
 
-```text
-Producto
-+
-Colección
-+
-Tela
-+
-Pata
-=
-Render
+That architecture is appropriate for a real application.
+For portfolio evaluation, however, requiring a recruiter to configure a database and start a backend server just to test the configurator would create unnecessary friction.
+The `portfolio-demo` directory therefore provides a deliberately simplified static version.
+
+* `original/` → Full-stack implementation
+* `portfolio-demo/` → Static interactive demonstration
+
+The demo does not attempt to replace the original architecture.
+It exists to make the most interesting part of the project immediately testable.
+
+## The Scalability Problem
+A furniture manufacturer can support many combinations of products and materials.
+A representative configuration space could be:
+
+40 products × 5 fabric collections × 9 fabrics × 3 leg types = 5,400 potential visual combinations
+
+Additional dimensions such as cushion configurations or other components would increase this number further.
+
+The challenge is therefore not simply: "How do I display another image?"
+The more important question is: "How do I represent a large configuration space without hardcoding every possible combination?"
+
+## Configuration Model
+The demo uses the following conceptual model:
+
+Product + Collection + Fabric + Leg Type = Visual Render
+
+Each dimension is represented independently in the data layer.
+The frontend then resolves the visual asset based on the selected state.
+
+## Featured Product
+The demo currently focuses on: **Sala Click Clack Jumbo Completa**
+Using one product keeps the experience focused while still exposing a meaningful configuration matrix.
+
+## Fabric Collections
+**Suiza (Five fabric variants):**
+* Blanco
+* Beige
+* Gris claro
+* Gris oscuro
+* Negro
+
+**Boreal (Nine fabric variants):**
+* Lila Sutil
+* Niebla Grisal
+* Mármol Arena
+* Rojo Borgoña
+* Violeta Púrpura
+* Azul Cobalto Profundo
+* Lino Pétreo
+* Mármol Ahumado
+* Ópalo Profundo
+
+Total: 14 fabrics
+
+## Leg Types
+The configurator supports three leg options:
+* Wood
+* Aluminum
+* Plastic
+
+This creates the following target configuration matrix: 14 fabrics × 3 leg types = 42 target combinations
+
+## Render Coverage
+At the current visual production stage, the demo contains:
+* Suiza / Wood: 5 renders
+* Boreal / Wood: 9 renders
+* Boreal / Aluminum: 1 render
+* Boreal / Plastic: 1 render
+
+Total: 16 / 42 target combinations.
+The remaining visual assets can be added without changing the configuration architecture.
+
+## Missing Renders and Fallback Behavior
+Not every visual combination needs to exist at the same time.
+The dataset can represent unavailable assets explicitly:
+
+```json
+{
+  "Wood": "images/.../muestra-02.webp",
+  "Aluminum": null,
+  "Plastic": null
+}
 ```
 
-en lugar de crear una página independiente para cada combinación.
+When the selected combination does not have a render, the interface falls back to the neutral product image.
+This makes the application independent from the exact timing of visual asset production.
 
-## Arquitectura de esta demo
-
-Esta versión está diseñada específicamente para funcionar como sitio estático.
+## Interaction Flow
+The intended user journey is:
 
 ```text
-HTML
+Open product
+      ↓
+Choose collection
+      ↓
+Open fabric catalog
+      ↓
+Select fabric
+      ↓
+Choose leg type
+      ↓
+Resolve render
+      ↓
+Review measurements
+      ↓
+Generate WhatsApp quotation
+```
+
+## Features
+The demo includes:
+* responsive product presentation;
+* product gallery interaction;
+* mobile touch/swipe behavior;
+* collection selection;
+* image-based fabric catalog;
+* fabric selection;
+* leg selection;
+* dynamic render resolution;
+* fallback behavior;
+* product measurements;
+* WhatsApp quotation generation.
+
+## Technical Architecture
+The demo is intentionally dependency-light.
+
+```text
+Browser
+   │
+   ├── index.html
+   ├── css/styles.css
+   ├── js/main.js
+   ├── data/catalogo.json
+   └── images/
+```
+
+There is no runtime dependency on PostgreSQL, Express, EJS, Node.js, authentication, server-side sessions, or a private backend.
+This makes the demo suitable for static hosting.
+
+## Data-Driven Design
+The configuration data lives in: `data/catalogo.json`
+
+The file defines product metadata, measurements, collections, fabric variants, leg types, render mappings, and WhatsApp configuration.
+This separation allows the interface to remain stable while the dataset changes.
+
+## Client-Side State
+The JavaScript maintains the current configuration state: `collection`, `fabric`, `leg`, `view`.
+
+The state is then used to determine which visual render should be displayed.
+The conceptual resolution flow is:
+
+```text
+product.slug
+      ↓
+collection
+      ↓
+fabric
+      ↓
+leg
+      ↓
+render URL
+```
+
+## Why Vanilla JavaScript?
+The original project uses a Node.js / Express / EJS architecture.
+For the static portfolio version, Vanilla JavaScript was intentionally retained because the required interaction model does not justify introducing a frontend framework.
+This keeps the demo lightweight while demonstrating DOM manipulation, event handling, client-side state management, dynamic rendering, responsive interaction, and touch/swipe behavior.
+
+## Asset Organization
+The demo uses optimized browser-ready assets.
+
+```text
+images/
+├── productos/
+│   └── sala-click-clack-jumbo-completa/
+│       ├── suiza/
+│       └── boreal/
+│           └── patas/
+│               ├── madera/
+│               ├── aluminio/
+│               └── plastico/
 │
-├── CSS
-├── JavaScript
-├── catalogo.json
-└── Assets WebP
+└── telas/
+    ├── suiza/
+    └── boreal/
 ```
 
-El proyecto utiliza:
+Product render paths reflect the configuration they represent.
+For example: `boreal` → `patas` → `madera` → `muestra-01.webp`
 
-- HTML5
-- CSS
-- Vanilla JavaScript
-- JSON
-- WebP
-- Tailwind CSS vía CDN
-- Bootstrap Icons
-
-La versión original del proyecto utilizaba además:
-
-- Node.js
-- Express
-- EJS
-- PostgreSQL
-- Helmet
-- Middleware
-- Tests automatizados
-
-La base de datos no forma parte de esta demo porque su objetivo es facilitar una demostración pública estática.
-
-## Configuración visual
-
-### Producto
-
-**Sala Click Clack Jumbo Completa**
-
-### Colecciones
-
-- Suiza
-- Boreal
-
-### Telas
-
-- 5 variantes de Suiza
-- 9 variantes de Boreal
-
-Total:
-
-**14 telas**
-
-### Patas
-
-- Madera
-- Aluminio
-- Plástico
-
-### Combinaciones objetivo
+## Visual Asset Pipeline
+The visual production workflow is separated from the application logic:
 
 ```text
-14 telas × 3 patas = 42 combinaciones
+Base furniture image
+        ↓
+Fabric / material reference
+        ↓
+AI-assisted render production
+        ↓
+Alignment / cleanup
+        ↓
+WebP optimization
+        ↓
+Catalog mapping
+        ↓
+Interactive frontend
 ```
 
-Los renders que todavía no existen se representan mediante `null` en `catalogo.json`.
+This means the frontend does not need to be redesigned whenever additional render assets are produced.
 
-Esto permite ampliar el sistema progresivamente sin modificar la lógica de la aplicación.
-
-## Funcionalidades
-
-La demo permite:
-
-- visualizar el producto;
-- navegar por las vistas;
-- abrir una colección;
-- explorar las telas disponibles;
-- seleccionar una tela;
-- seleccionar el tipo de pata;
-- cambiar dinámicamente el render cuando existe;
-- utilizar un fallback cuando un render todavía no está disponible;
-- visualizar las medidas;
-- generar un enlace de cotización por WhatsApp.
-
-## Estructura
-
+## Project Structure
 ```text
 portfolio-demo/
 │
@@ -162,113 +267,36 @@ portfolio-demo/
 └── README.md
 ```
 
-## Decisiones de diseño
+## Relationship to the Original Project
+This demo is derived from the original full-stack implementation but intentionally uses a different runtime model.
 
-### Datos separados de la interfaz
+* **Original:** Node.js, Express, EJS, PostgreSQL, Backend routes, Security middleware, Tests → Complete application
+* **Portfolio Demo:** HTML, CSS, Vanilla JavaScript, JSON, WebP → Static interactive showcase
 
-Las colecciones, telas, patas y renders no están definidos directamente dentro de la interfaz.
+The distinction is intentional.
+The original repository demonstrates the complete engineering implementation, while this directory demonstrates the core configurable frontend with minimal infrastructure requirements.
 
-La información vive en:
+## Limitations
+This version intentionally does not include the complete production stack.
+It excludes PostgreSQL, Express, EJS, backend APIs, authentication, administration tooling, production monitoring, CI/CD, and the complete business catalog.
+These omissions are deliberate and exist to keep the public demonstration lightweight.
 
-```text
-data/catalogo.json
-```
+## Future Extensions
+The configuration model can be expanded with additional dimensions such as:
+Fabric + Leg Type + Cushion configuration + Material + Additional components
 
-Esto permite modificar o ampliar el catálogo sin reconstruir la estructura HTML.
+The same approach could also support richer visual experiences such as 360-degree product presentation.
 
-### Renders opcionales
+## Portfolio Context
+This demo is based on an MVP developed for a real furniture manufacturing business.
+The business ultimately decided not to proceed with production deployment because its existing sales workflow did not currently require the additional operational overhead.
+The implementation is therefore presented as a technical portfolio case study rather than as a production storefront.
 
-No todas las combinaciones requieren existir desde el comienzo.
+## Deployment
+This directory is designed to be compatible with static hosting platforms such as GitHub Pages.
+The published demo requires only the files contained within this directory and does not require a database or private server-side infrastructure.
 
-Por ejemplo:
-
-```json
-{
-  "Madera": "images/.../muestra-02.webp",
-  "Aluminio": null,
-  "Plástico": null
-}
-```
-
-La interfaz detecta automáticamente si existe un render y utiliza la imagen principal como fallback cuando todavía no está disponible.
-
-### Assets
-
-Los assets finales utilizados por la demo están optimizados en formato WebP.
-
-Los archivos fuente utilizados durante el proceso de producción visual no forman parte de la demo pública.
-
-## Demo
-
-Esta carpeta está preparada para ser desplegada como sitio estático.
-
-El objetivo es poder alojar la demostración en una plataforma como GitHub Pages sin depender de:
-
-- PostgreSQL
-- Node.js
-- Express
-- variables de entorno
-- servicios externos de backend
-
-## Proyecto original
-
-El proyecto original fue desarrollado como una aplicación full-stack para un negocio real.
-
-La versión completa incluyó:
-
-```text
-Node.js
-Express
-PostgreSQL
-EJS
-Vanilla JavaScript
-Tailwind CSS
-Helmet
-Rate limiting
-Validación
-Tests
-Persistencia de carrito
-Catálogo
-Cotización por WhatsApp
-Configuración visual
-```
-
-Esta demo es una reducción intencional del proyecto original para facilitar su publicación y evaluación técnica.
-
-## Estado actual
-
-### Implementado
-
-- [x] Configuración por colección
-- [x] Configuración por tela
-- [x] Configuración por tipo de pata
-- [x] Cambio dinámico de renders
-- [x] Fallback de renders
-- [x] Medidas
-- [x] WhatsApp
-- [x] Responsive
-- [x] Galería
-- [x] Modal de telas
-
-### Producción visual actual
-
-- [x] 5 renders Suiza / Madera
-- [x] 9 renders Boreal / Madera
-- [x] 1 render Boreal / Aluminio
-- [x] 1 render Boreal / Plástico
-
-Total de renders actualmente disponibles:
-
-**16 / 42**
-
-Pendientes de producción visual:
-
-**26 renders**
-
-## Nota
-
-Esta demo es un proyecto de portfolio desarrollado a partir de un MVP real.
-
-No representa una tienda en producción ni recopila información del visitante.
-
-El objetivo principal es demostrar la arquitectura de configuración visual, manejo de datos y organización de assets.
+## Usage Note
+This is a portfolio demonstration derived from an original project.
+Private business credentials and sensitive configuration are excluded.
+The demo is intended for technical evaluation and portfolio purposes only.
