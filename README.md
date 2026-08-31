@@ -31,9 +31,7 @@
 ---
 
 ### 📌 Project Overview
-> A full-stack furniture catalog and visual configuration system developed around a real-world manufacturing use case.
-
-The project evolved from a conventional digital catalog into an interactive configuration experience where users can explore fabric collections, select upholstery options, choose different leg types, visualize available combinations, review product measurements, and initiate a quotation through WhatsApp.
+> SolucionMuebles is an interactive furniture catalog system designed to enable customers to customize fabrics, leg options, and request accurate quotes via WhatsApp. This repository serves as a technical case study demonstrating how to architect a scalable configuration matrix for customizable physical products.
 
 ```text
 Product
