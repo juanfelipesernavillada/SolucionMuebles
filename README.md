@@ -143,7 +143,7 @@ Instead of building a separate page for every possible combination, the system r
 
 * Node.js.
 
-*Express.
+* Express.
 
 * PostgreSQL.
 
