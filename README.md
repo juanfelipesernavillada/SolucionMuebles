@@ -1,5 +1,11 @@
 <h1 align="center">🛋️ SolucionMuebles 
+
+</h1>
+
+<h1 align="center">
+   
 `🚧 Portfolio / Case Study`
+</h1>
 
 <p align="center">
   <strong>Full-Stack Furniture Configurator & Digital Catalog System</strong>
