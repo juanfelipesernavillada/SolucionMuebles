@@ -202,7 +202,11 @@ Instead of building a separate page for every possible combination, the system r
 
 </div>
 
+<div align="center">
+
 # 🏗️ Architecture
+
+</div>
 
 At a high level:
 
@@ -281,7 +285,7 @@ SolucionMuebles/
 ```
 
 
-# 🔄 Original Implementation
+## 🔄 Original Implementation
 
 The `original/` directory contains the sanitized version of the complete full-stack application developed for the original business use case.
 
@@ -309,7 +313,7 @@ It preserves the engineering work performed during the project, including:
 
 Private credentials and sensitive environment information were removed before publication.
 
-# 🎮 Portfolio Demo
+## 🎮 Portfolio Demo
 
 The portfolio-demo/ directory contains a deliberately reduced static version of the project designed for public evaluation.
 
@@ -334,13 +338,13 @@ The repository separates the complete engineering implementation from the public
 
 This separation preserves the integrity of the original architecture while making the most interesting part of the application easy to evaluate.
 
-# 📝 Project Outcome
+## 📝 Project Outcome
 
 After the MVP was demonstrated, the business decided not to proceed with the production deployment.
 The reason was not a technical failure. The existing sales workflow was already performing well, and the business did not consider the additional operational overhead of launching and maintaining the digital catalog necessary at that stage.
 The completed implementation is therefore preserved as a software engineering case study and portfolio project.
 
-# 🖼️ What This Project Demonstrates
+## 🖼️ What This Project Demonstrates
 This project demonstrates the ability to:
 
 * translate business requirements into software architecture;
@@ -365,7 +369,7 @@ This project demonstrates the ability to:
 
 * and reduce a full-stack application into a focused public demonstration.
 
-# ⚠️⚠️⚠️ Disclaimer
+## ⚠️⚠️⚠️ Disclaimer
 
 This repository is a sanitized portfolio representation of a project originally developed for a real furniture business.
 Private credentials, secrets, and other sensitive information are intentionally excluded.
