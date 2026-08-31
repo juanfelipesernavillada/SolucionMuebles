@@ -202,11 +202,10 @@ Instead of building a separate page for every possible combination, the system r
 
 </div>
 
-<div align="center">
 
 # 🏗️ Architecture
 
-</div>
+
 
 At a high level:
 
