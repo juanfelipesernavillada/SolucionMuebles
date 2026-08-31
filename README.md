@@ -30,7 +30,7 @@
 
 ---
 
-## 📌 Project Overview
+# 📌 Project Overview
 
 > SolucionMuebles is an interactive furniture catalog system designed to enable customers to customize fabrics, leg options, and request quotations via WhatsApp. This repository serves as a technical case study demonstrating how to architect a scalable configuration matrix for customizable physical products.
 
@@ -50,7 +50,7 @@ Quotation
 
 The key architectural challenge was not merely displaying products. It was creating a structure that could accommodate an increasing number of visual combinations without turning every combination into an independent hardcoded implementation.
 
-##💼 Business Context & Scalability Challenge
+# 💼 Business Context & Scalability Challenge
 The project was developed for a furniture manufacturing business whose products can be upholstered using shared fabric collections.
 
 This means that a fabric collection is not inherently tied to one product.
@@ -68,7 +68,7 @@ The same collection may be available across multiple furniture models, while the
 
 This requirement influenced the data model and the frontend configuration architecture from the beginning.
 
-## 🧮The Scalability Challenge
+# 🧮The Scalability Challenge
 
 A larger implementation could potentially involve:
 
@@ -85,11 +85,11 @@ Instead of building a separate page for every possible combination, the system r
 
 <div align="center">
 
-## ⚡ Key Features
+# ⚡ Key Features
 
 </div>
 
-**🛍️Product Catalog**
+## 🛍️Product Catalog
 
 * Product catalog organized by category.
 
@@ -101,7 +101,7 @@ Instead of building a separate page for every possible combination, the system r
 
 * Product measurements stored independently from presentation.
 
-**🎨Visual Configuration**
+## 🎨Visual Configuration
 
 * Dynamic configuration: Real-time preview of supported fabric and leg combinations, with fallback handling for unavailable visual assets.
 
@@ -185,7 +185,7 @@ Instead of building a separate page for every possible combination, the system r
 
 <div align="center">
 
-## 🛠️ Technology Stack
+# 🛠️ Technology Stack
 
 | Layer | Technologies |
 |---|---|
@@ -202,7 +202,7 @@ Instead of building a separate page for every possible combination, the system r
 
 </div>
 
-## 🏗️ Architecture
+# 🏗️ Architecture
 
 At a high level:
 
@@ -281,9 +281,9 @@ SolucionMuebles/
 ```
 
 
-🔄 Original Implementation
+# 🔄 Original Implementation
 
-The original/ directory contains the sanitized version of the complete full-stack application developed for the original business use case.
+The `original/` directory contains the sanitized version of the complete full-stack application developed for the original business use case.
 
 It preserves the engineering work performed during the project, including:
 
@@ -309,7 +309,7 @@ It preserves the engineering work performed during the project, including:
 
 Private credentials and sensitive environment information were removed before publication.
 
-## 🎮 Portfolio Demo
+# 🎮 Portfolio Demo
 
 The portfolio-demo/ directory contains a deliberately reduced static version of the project designed for public evaluation.
 
@@ -340,7 +340,7 @@ After the MVP was demonstrated, the business decided not to proceed with the pro
 The reason was not a technical failure. The existing sales workflow was already performing well, and the business did not consider the additional operational overhead of launching and maintaining the digital catalog necessary at that stage.
 The completed implementation is therefore preserved as a software engineering case study and portfolio project.
 
-## 🖼️ What This Project Demonstrates
+# 🖼️ What This Project Demonstrates
 This project demonstrates the ability to:
 
 * translate business requirements into software architecture;
@@ -365,7 +365,7 @@ This project demonstrates the ability to:
 
 * and reduce a full-stack application into a focused public demonstration.
 
-## ⚠️⚠️⚠️ Disclaimer
+# ⚠️⚠️⚠️ Disclaimer
 
 This repository is a sanitized portfolio representation of a project originally developed for a real furniture business.
 Private credentials, secrets, and other sensitive information are intentionally excluded.
