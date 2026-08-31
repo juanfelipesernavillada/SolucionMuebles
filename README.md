@@ -334,7 +334,7 @@ The repository separates the complete engineering implementation from the public
 
 This separation preserves the integrity of the original architecture while making the most interesting part of the application easy to evaluate.
 
-## 📝 Project Outcome
+# 📝 Project Outcome
 
 After the MVP was demonstrated, the business decided not to proceed with the production deployment.
 The reason was not a technical failure. The existing sales workflow was already performing well, and the business did not consider the additional operational overhead of launching and maintaining the digital catalog necessary at that stage.
