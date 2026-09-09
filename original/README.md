@@ -398,3 +398,42 @@ This project reinforced several important engineering principles:
 * Keep frontend state predictable.
 * Preserve a clear path from MVP architecture to future scalability.
 * Distinguish application architecture from portfolio presentation requirements.
+
+## 30. Relationship to the Portfolio Demo
+The repository contains a separate static implementation under:
+
+`portfolio-demo/`
+
+The portfolio demo exists so the application can be deployed through GitHub Pages, which does not provide the Node.js/PostgreSQL backend required by the original implementation.
+The two versions therefore serve different purposes:
+
+**original/**
+↓
+* Engineering inspection
+* Node.js
+* Express
+* PostgreSQL
+* EJS
+* Server-side architecture
+* Validation
+* Security
+* Testing
+* Asset pipeline
+
+**portfolio-demo/**
+↓
+* Public interactive demonstration
+* Static HTML/CSS/JavaScript
+* No backend
+* No database
+* GitHub Pages compatible
+
+The portfolio demo reproduces the central configuration experience using a reduced static dataset.
+The demo focuses on one product with:
+
+* 1 product
+* × 14 fabrics
+* × 3 leg types
+* = 42 target configuration combinations
+
+This preserves the core idea of the original system while remaining simple enough to host publicly without a backend.
