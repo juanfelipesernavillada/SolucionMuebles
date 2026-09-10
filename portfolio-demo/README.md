@@ -150,9 +150,9 @@ This creates the following target configuration matrix:
 At the current visual production stage, the demo contains:
 
 
-# 📌Collection:
+## 📌Collection:
 
-## **🪑Leg Type | 🖼️Renders**
+### **🪑Leg Type - 🖼️Renders**
 
 ### 🐑Suiza | 🪵Wood
 
@@ -179,11 +179,13 @@ The remaining visual assets can be added without changing the configuration arch
 
 Not every visual combination needs to exist at the same time. The dataset can represent unavailable assets explicitly:
 
+```javascript
 {
   "Wood": "images/.../muestra-02.webp",
   "Aluminum": null,
   "Plastic": null
 }
+```
 
 When the selected combination does not have a render, the interface falls back to the neutral product image. This makes the application independent from the exact timing of visual asset production.
 
