@@ -21,7 +21,7 @@
 
 ##
 
-### > TL;DR: This is a static, backend-free version of a furniture configurator originally developed as a full-stack application. It demonstrates how a product can be modeled as a combination of reusable configuration dimensions (collection × fabric × leg type) without hardcoding every possible combination. The demo runs entirely in the browser using HTML, CSS, Vanilla JavaScript, and a JSON data file — no database, no server, no build step.
+> TL;DR: This is a static, backend-free version of a furniture configurator originally developed as a full-stack application. It demonstrates how a product can be modeled as a combination of reusable configuration dimensions (collection × fabric × leg type) without hardcoding every possible combination. The demo runs entirely in the browser using HTML, CSS, Vanilla JavaScript, and a JSON data file — no database, no server, no build step.
 
 ## 📌 Purpose
 
