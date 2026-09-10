@@ -1,12 +1,18 @@
 <div align="center">
 
-🛋️ Furniture Configurator — Portfolio Demo
+# 🛋️ Furniture Configurator — Portfolio Demo
 
-Static interactive demonstration of a full-stack furniture configurator
+##
+
+## Static interactive demonstration of a full-stack furniture configurator
+
+##
 
 <a href="https://juanfelipesernavillada.github.io/SolucionMuebles/portfolio-demo/">
   <img src="https://img.shields.io/badge/LIVE_DEMO-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white" alt="View Demo" width="220" />
 </a>
+
+##
 
 <p>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
@@ -16,6 +22,8 @@ Static interactive demonstration of a full-stack furniture configurator
 </p>
 
 </div>
+
+##
 
 TL;DR: This is a static, backend-free version of a furniture configurator originally developed as a full-stack application. It demonstrates how a product can be modeled as a combination of reusable configuration dimensions (collection × fabric × leg type) without hardcoding every possible combination. The demo runs entirely in the browser using HTML, CSS, Vanilla JavaScript, and a JSON data file — no database, no server, no build step.
 
