@@ -154,21 +154,13 @@ At the current visual production stage, the demo contains:
 
 ### **🪑Leg Type - 🖼️Renders**
 
-### 🐑Suiza | 🪵Wood
+### 🐑Suiza | 🪵Wood > 🔢: 5
 
-> 🔢: 5
+### 🌃Boreal | 🪵Wood > 🔢: 9
 
-### 🌃Boreal | 🪵Wood
+### 🌃Boreal | ⛓️Aluminum > 🔢: 1
 
-> 🔢: 9
-
-### 🌃Boreal | ⛓️Aluminum
-
-> 🔢: 1
-
-### Boreal | 🪣Plastic
-
-> 🔢: 1
+### Boreal | 🪣Plastic > 🔢: 1
 
 ## **Total: 16 / 42**
 
