@@ -53,19 +53,19 @@ That architecture is appropriate for a real application. For portfolio evaluatio
 
 The portfolio-demo/ directory therefore provides a deliberately simplified static version:
 
-Directory
+* Directory
 
-Purpose
+* Purpose
 
-original/
+* original/
 
-Full-stack implementation (engineering inspection)
+* Full-stack implementation (engineering inspection)
 
-portfolio-demo/
+* portfolio-demo/
 
-Static interactive demonstration (recruiter-facing)
+* Static interactive demonstration (recruiter-facing)
 
-The demo does not attempt to replace the original architecture. It exists to make the most interesting part of the project immediately testable.
+* The demo does not attempt to replace the original architecture. It exists to make the most interesting part of the project immediately testable.
 
 ## 🧮 The Scalability Problem
 
