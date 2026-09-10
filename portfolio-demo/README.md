@@ -135,55 +135,43 @@ Using one product keeps the experience focused while still exposing a meaningful
 
 The configurator supports 3 leg options:
 
-Wood
+* 🪵Wood
 
-Aluminum
+* ⛓️Aluminum
 
-Plastic
+* 🪣Plastic
 
 This creates the following target configuration matrix:
 
-14 fabrics × 3 leg types = 42 target configuration combinations
+# **14 fabrics × 3 leg types = 42 target configuration combinations**
 
 ## 📊 Render Coverage
 
 At the current visual production stage, the demo contains:
 
-Collection
+```text
+# 📌Collection:
 
-Leg Type
+## **🪑Leg Type | 🖼️Renders**
 
-Renders
+### 🐑Suiza | 🪵Wood
 
-Suiza
+> 🔢: 5
 
-Wood
+### 🌃Boreal | 🪵Wood
 
-5
+> 🔢: 9
 
-Boreal
+### 🌃Boreal | ⛓️Aluminum
 
-Wood
+> 🔢: 1
 
-9
+### Boreal | 🪣Plastic
 
-Boreal
+> 🔢: 1
 
-Aluminum
-
-1
-
-Boreal
-
-Plastic
-
-1
-
-Total
-
-
-
-16 / 42
+## **Total: 16 / 42**
+```
 
 The remaining visual assets can be added without changing the configuration architecture.
 
