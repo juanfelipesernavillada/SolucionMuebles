@@ -21,14 +21,15 @@
 
 ##
 
-TL;DR: This is a static, backend-free version of a furniture configurator originally developed as a full-stack application. It demonstrates how a product can be modeled as a combination of reusable configuration dimensions (collection × fabric × leg type) without hardcoding every possible combination. The demo runs entirely in the browser using HTML, CSS, Vanilla JavaScript, and a JSON data file — no database, no server, no build step.
+## > TL;DR: This is a static, backend-free version of a furniture configurator originally developed as a full-stack application. It demonstrates how a product can be modeled as a combination of reusable configuration dimensions (collection × fabric × leg type) without hardcoding every possible combination. The demo runs entirely in the browser using HTML, CSS, Vanilla JavaScript, and a JSON data file — no database, no server, no build step.
 
-📌 Purpose
+## 📌 Purpose
 
 The original application evolved from a conventional furniture catalog into an interactive product configurator.
 
 This demo focuses exclusively on that configuration experience:
 
+```text
 Product
    ↓
 Collection
@@ -40,10 +41,11 @@ Leg Type
 Visual Render
    ↓
 WhatsApp Quotation
+```
 
 The objective is to demonstrate how a product can be modeled as a combination of reusable configuration dimensions rather than as a collection of unrelated product pages.
 
-🎯 Why This Demo Exists
+## 🎯 Why This Demo Exists
 
 The original implementation uses a complete full-stack architecture: Node.js, Express, EJS, PostgreSQL, security middleware, API routes, and automated tests.
 
@@ -65,7 +67,7 @@ Static interactive demonstration (recruiter-facing)
 
 The demo does not attempt to replace the original architecture. It exists to make the most interesting part of the project immediately testable.
 
-🧮 The Scalability Problem
+## 🧮 The Scalability Problem
 
 A furniture manufacturer can support many combinations of products and materials. A representative configuration space could be:
 
@@ -77,7 +79,7 @@ The challenge is therefore not simply: "How do I display another image?"
 
 The more important question is: "How do I represent a large configuration space without hardcoding every possible combination?"
 
-🧩 Configuration Model
+## 🧩 Configuration Model
 
 The demo uses the following conceptual model:
 
@@ -85,7 +87,7 @@ Product + Collection + Fabric + Leg Type = Visual Render
 
 Each dimension is represented independently in the data layer. The frontend then resolves the visual asset based on the selected state.
 
-🛍️ Featured Product
+## 🛍️ Featured Product
 
 The demo currently focuses on:
 
@@ -93,7 +95,7 @@ Sala Click Clack Jumbo Completa
 
 Using one product keeps the experience focused while still exposing a meaningful configuration matrix.
 
-🎨 Fabric Collections
+## 🎨 Fabric Collections
 
 Suiza (5 variants)
 
@@ -129,7 +131,7 @@ Mármol Ahumado
 
 Total: 14 fabrics
 
-🪑 Leg Types
+## 🪑 Leg Types
 
 The configurator supports 3 leg options:
 
@@ -143,7 +145,7 @@ This creates the following target configuration matrix:
 
 14 fabrics × 3 leg types = 42 target configuration combinations
 
-📊 Render Coverage
+## 📊 Render Coverage
 
 At the current visual production stage, the demo contains:
 
@@ -185,7 +187,7 @@ Total
 
 The remaining visual assets can be added without changing the configuration architecture.
 
-🔄 Missing Renders and Fallback Behavior
+## 🔄 Missing Renders and Fallback Behavior
 
 Not every visual combination needs to exist at the same time. The dataset can represent unavailable assets explicitly:
 
@@ -197,7 +199,7 @@ Not every visual combination needs to exist at the same time. The dataset can re
 
 When the selected combination does not have a render, the interface falls back to the neutral product image. This makes the application independent from the exact timing of visual asset production.
 
-🚀 Interaction Flow
+## 🚀 Interaction Flow
 
 The intended user journey is:
 
@@ -217,7 +219,7 @@ Review measurements
       ↓
 Generate WhatsApp quotation
 
-⚡ Features
+## ⚡ Features
 
 The demo includes:
 
@@ -243,7 +245,7 @@ The demo includes:
 
 💬 WhatsApp quotation generation
 
-🛠️ Technical Architecture
+## 🛠️ Technical Architecture
 
 The demo is intentionally dependency-light:
 
@@ -273,7 +275,7 @@ There is no runtime dependency on:
 
 This makes the demo suitable for static hosting (GitHub Pages, Netlify, Vercel, etc.).
 
-📦 Data-Driven Design
+## 📦 Data-Driven Design
 
 The configuration data lives in:
 
@@ -297,7 +299,7 @@ WhatsApp configuration
 
 This separation allows the interface to remain stable while the dataset changes.
 
-🧠 Client-Side State
+## 🧠 Client-Side State
 
 The JavaScript maintains the current configuration state:
 
@@ -320,7 +322,7 @@ leg
       ↓
 render URL
 
-💡 Why Vanilla JavaScript?
+## 💡 Why Vanilla JavaScript?
 
 The original project uses a Node.js / Express / EJS architecture. For the static portfolio version, Vanilla JavaScript was intentionally retained because:
 
@@ -342,7 +344,7 @@ Responsive interaction
 
 Touch / swipe behavior
 
-📁 Asset Organization
+## 📁 Asset Organization
 
 The demo uses optimized browser-ready assets:
 
@@ -364,7 +366,7 @@ Product render paths reflect the configuration they represent. For example:
 
 boreal → patas → madera → muestra-01.webp
 
-🖼️ Visual Asset Pipeline
+## 🖼️ Visual Asset Pipeline
 
 The visual production workflow is separated from the application logic:
 
@@ -384,7 +386,7 @@ Interactive frontend
 
 This means the frontend does not need to be redesigned whenever additional render assets are produced.
 
-📂 Project Structure
+## 📂 Project Structure
 
 portfolio-demo/
 │
@@ -409,7 +411,7 @@ portfolio-demo/
 ├── .gitignore
 └── README.md
 
-🔗 Relationship to the Original Project
+## 🔗 Relationship to the Original Project
 
 This demo is derived from the original full-stack implementation but intentionally uses a different runtime model.
 
@@ -457,7 +459,7 @@ Recruiter evaluation
 
 The distinction is intentional. The original/ repository demonstrates the complete engineering implementation, while this directory demonstrates the core configurable frontend with minimal infrastructure requirements.
 
-⚠️ Limitations
+## ⚠️ Limitations
 
 This version intentionally does not include the complete production stack. It excludes:
 
@@ -481,7 +483,7 @@ The complete business catalog
 
 These omissions are deliberate and exist to keep the public demonstration lightweight and instantly accessible.
 
-🔮 Future Extensions
+## 🔮 Future Extensions
 
 The configuration model can be expanded with additional dimensions such as:
 
@@ -489,13 +491,13 @@ Fabric + Leg Type + Cushion configuration + Material + Additional components
 
 The same approach could also support richer visual experiences such as 360-degree product presentation.
 
-📖 Portfolio Context
+## 📖 Portfolio Context
 
 This demo is based on an MVP developed for a real furniture manufacturing business. The business ultimately decided not to proceed with production deployment because its existing sales workflow did not currently require the additional operational overhead.
 
 The implementation is therefore presented as a technical portfolio case study rather than as a production storefront.
 
-🚀 Deployment
+## 🚀 Deployment
 
 This directory is designed to be compatible with static hosting platforms such as:
 
@@ -509,7 +511,7 @@ Cloudflare Pages
 
 The published demo requires only the files contained within this directory and does not require a database or private server-side infrastructure.
 
-🧪 How to Test Locally
+## 🧪 How to Test Locally
 
 Option 1: Direct browser access
 
@@ -519,7 +521,7 @@ Navigate to portfolio-demo/.
 
 Open index.html in your browser.
 
-⚠️ Note: Due to CORS restrictions, opening the file directly via file:// may block the JSON fetch. Use a local server instead.
+# ⚠️ Note: Due to CORS restrictions, opening the file directly via file:// may block the JSON fetch. Use a local server instead.
 
 Option 2: Local server (recommended)
 
@@ -569,7 +571,7 @@ Build steps required
 
 0
 
-🔄 What I Would Do Differently
+## 🔄 What I Would Do Differently
 
 If I were to rebuild this demo today, I would:
 
@@ -583,6 +585,6 @@ Include a print/PDF export of the selected configuration for in-store use.
 
 Add analytics to track which fabric/leg combinations are most viewed.
 
-📄 Usage Note
+## 📄 Usage Note
 
 This is a portfolio demonstration derived from an original project. Private business credentials and sensitive configuration are excluded. The demo is intended for technical evaluation and portfolio purposes only.
