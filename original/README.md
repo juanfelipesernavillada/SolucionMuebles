@@ -4,9 +4,7 @@
 
 </div>
 
-This directory contains the sanitized version of the original full-stack implementation developed for a real furniture manufacturing business.
-
-It preserves the project's architecture, implementation decisions, development utilities, and application logic while excluding private credentials and sensitive environment configuration.
+> This directory contains the sanitized version of the original full-stack implementation developed for a real furniture manufacturing business. It preserves the project's architecture, implementation decisions, development utilities, and application logic while excluding private credentials and sensitive environment configuration.
 
 ---
 
