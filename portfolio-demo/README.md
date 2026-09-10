@@ -143,7 +143,7 @@ The configurator supports 3 leg options:
 
 This creates the following target configuration matrix:
 
-# **14 fabrics × 3 leg types = 42 target configuration combinations**
+## **14 fabrics × 3 leg types = 42 target configuration combinations**
 
 ## 📊 Render Coverage
 
