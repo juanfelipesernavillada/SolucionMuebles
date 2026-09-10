@@ -150,20 +150,20 @@ This creates the following target configuration matrix:
 At the current visual production stage, the demo contains:
 
 ```text
-## 📌Collection:
+📌Collection:
 
-### **🪑Leg Type - 🖼️Renders**
+🪑Leg Type - 🖼️Renders
 
-### 🐑Suiza | 🪵Wood | 🖼️: 5
+🐑Suiza | 🪵Wood | 🖼️: 5
 
-### 🌃Boreal | 🪵Wood | 🖼️: 9
+🌃Boreal | 🪵Wood | 🖼️: 9
 
-### 🌃Boreal | ⛓️Aluminum | 🖼️: 1
+🌃Boreal | ⛓️Aluminum | 🖼️: 1
 
-### Boreal | 🪣Plastic | 🖼️: 1
-
-## **Total: 16 / 42**
+Boreal | 🪣Plastic | 🖼️: 1
 ```
+> Total: 16 / 42
+
 
 The remaining visual assets can be added without changing the configuration architecture.
 
