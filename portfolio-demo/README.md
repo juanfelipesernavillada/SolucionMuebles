@@ -4,10 +4,11 @@
 
 ## Static interactive demonstration of a full-stack furniture configurator
 
-## 
 <a href="https://juanfelipesernavillada.github.io/SolucionMuebles/portfolio-demo/">
   <img src="https://img.shields.io/badge/LIVE_DEMO-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white" alt="View Demo" width="220" />
 </a>
+
+## 
 
 <p>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
