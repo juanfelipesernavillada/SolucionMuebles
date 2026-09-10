@@ -129,7 +129,7 @@ Using one product keeps the experience focused while still exposing a meaningful
 
 * Ópalo Profundo
 
-> Total: 14 fabrics
+## **Total: 14 fabrics**
 
 ## 🪑 Leg Types
 
