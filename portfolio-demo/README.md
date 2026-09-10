@@ -356,7 +356,7 @@ The demo uses optimized browser-ready assets:
 
 Product render paths reflect the configuration they represent. For example:
 
-> **boreal → patas → madera → muestra-01.webp**
+## **boreal → patas → madera → muestra-01.webp**
 
 ## 🖼️ Visual Asset Pipeline
 
