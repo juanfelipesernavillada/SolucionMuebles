@@ -71,7 +71,7 @@ The portfolio-demo/ directory therefore provides a deliberately simplified st
 
 A furniture manufacturer can support many combinations of products and materials. A representative configuration space could be:
 
-40 products × 5 fabric collections × 9 fabrics × 3 leg types = 5,400 potential visual combinations
+## **40 products × 5 fabric collections × 9 fabrics × 3 leg types = 5,400 potential visual combinations**
 
 Additional dimensions such as cushion configurations or other components would increase this number further.
 
@@ -83,7 +83,7 @@ The more important question is: "How do I represent a large configuration space
 
 The demo uses the following conceptual model:
 
-Product + Collection + Fabric + Leg Type = Visual Render
+## **Product + Collection + Fabric + Leg Type = Visual Render**
 
 Each dimension is represented independently in the data layer. The frontend then resolves the visual asset based on the selected state.
 
@@ -91,45 +91,45 @@ Each dimension is represented independently in the data layer. The frontend th
 
 The demo currently focuses on:
 
-Sala Click Clack Jumbo Completa
+* Sala Click Clack Jumbo Completa
 
 Using one product keeps the experience focused while still exposing a meaningful configuration matrix.
 
 ## 🎨 Fabric Collections
 
-Suiza (5 variants)
+🐏Suiza (5 variants)
 
-Blanco
+* Blanco
 
-Beige
+* Beige
 
-Gris claro
+* Gris claro
 
-Gris oscuro
+* Gris oscuro
 
-Negro
+* Negro
 
-Boreal (9 variants)
+🌃Boreal (9 variants)
 
-Lila Sutil
+* Lila Sutil
 
-Niebla Grisal
+* Niebla Grisal
 
-Mármol Arena
+* Mármol Arena
 
-Rojo Borgoña
+* Rojo Borgoña
 
-Violeta Púrpura
+* Violeta Púrpura
 
-Azul Cobalto Profundo
+* Azul Cobalto Profundo
 
-Lino Pétreo
+* Lino Pétreo
 
-Mármol Ahumado
+* Mármol Ahumado
 
-Ópalo Profundo
+* Ópalo Profundo
 
-Total: 14 fabrics
+> Total: 14 fabrics
 
 ## 🪑 Leg Types
 
