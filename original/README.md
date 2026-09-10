@@ -1,6 +1,6 @@
 <div align="center">
 
-# SolucionMuebles — Original Full-Stack Implementation
+# 🛋️ SolucionMuebles — Original Full-Stack Implementation
 
 </div>
 
