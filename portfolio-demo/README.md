@@ -12,7 +12,6 @@ Static interactive demonstration of a full-stack furniture configurator
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" />
   <img src="https://img.shields.io/badge/GitHub_Pages-181717?style=for-the-badge&logo=github&logoColor=white" />
 </p>
 
@@ -94,7 +93,7 @@ Using one product keeps the experience focused while still exposing a meaningful
 
 🎨 Fabric Collections
 
-**Suiza (5 variants)"
+Suiza (5 variants)
 
 Blanco
 
@@ -588,13 +587,14 @@ Add analytics to track which fabric/leg combinations are most viewed.
 
 This is a portfolio demonstration derived from an original project. Private business credentials and sensitive configuration are excluded. The demo is intended for technical evaluation and portfolio purposes only.
 
+<div align="center">
+  
 📫 Contact
 
-Author: Juan Felipe Serna V.
+<a href="mailto:juanfelipesernavillada66@gmail.com?subject=Contact%20from%20GitHub"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+<a href="https://www.linkedin.com/in/juan-serna-673baa34b/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
 
-LinkedIn: juanfelipesernavillada
-
-GitHub: juanfelipesernavillada
+</div>
 
 <div align="center">
 Built with ❤️ as a technical portfolio case study
