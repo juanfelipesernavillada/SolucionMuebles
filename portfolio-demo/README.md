@@ -259,7 +259,7 @@ There is no runtime dependency on:
 ❌ Private backend
 ```
 
-This makes the demo suitable for static hosting (GitHub Pages, Netlify, Vercel, etc.).
+✅This makes the demo suitable for static hosting (GitHub Pages, Netlify, Vercel, etc.).
 
 ## 📦 Data-Driven Design
 
