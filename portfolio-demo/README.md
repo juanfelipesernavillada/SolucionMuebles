@@ -149,7 +149,7 @@ This creates the following target configuration matrix:
 
 At the current visual production stage, the demo contains:
 
-```text
+
 # 📌Collection:
 
 ## **🪑Leg Type | 🖼️Renders**
@@ -171,7 +171,7 @@ At the current visual production stage, the demo contains:
 > 🔢: 1
 
 ## **Total: 16 / 42**
-```
+
 
 The remaining visual assets can be added without changing the configuration architecture.
 
