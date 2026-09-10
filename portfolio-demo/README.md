@@ -205,42 +205,45 @@ Generate WhatsApp quotation
 
 The demo includes:
 
-📱 Responsive product presentation
+* 📱 Responsive product presentation
 
-🖼️ Product gallery interaction
+* 🖼️ Product gallery interaction
 
-👆 Mobile touch / swipe behavior
+* 👆 Mobile touch / swipe behavior
 
-🎨 Collection selection
+* 🎨 Collection selection
 
-🧵 Image-based fabric catalog
+* 🧵 Image-based fabric catalog
 
-✨ Fabric selection
+* ✨ Fabric selection
 
-🪑 Leg selection
+* 🪑 Leg selection
 
-🔄 Dynamic render resolution
+* 🔄 Dynamic render resolution
 
-🛡️ Fallback behavior for missing assets
+* 🛡️ Fallback behavior for missing assets
 
-📏 Product measurements
+* 📏 Product measurements
 
-💬 WhatsApp quotation generation
+* 💬 WhatsApp quotation generation
 
 ## 🛠️ Technical Architecture
 
 The demo is intentionally dependency-light:
 
-Browser
+```text
+🌐Browser
    │
-   ├── index.html
-   ├── css/styles.css
-   ├── js/main.js
-   ├── data/catalogo.json
-   └── images/
+   ├──📄index.html
+   ├──📄css/styles.css
+   ├──📄js/main.js
+   ├──📄data/catalogo.json
+   └──📁images/
+```
 
 There is no runtime dependency on:
 
+```text
 ❌ PostgreSQL
 
 ❌ Express
@@ -254,6 +257,7 @@ There is no runtime dependency on:
 ❌ Server-side sessions
 
 ❌ Private backend
+```
 
 This makes the demo suitable for static hosting (GitHub Pages, Netlify, Vercel, etc.).
 
@@ -285,15 +289,18 @@ This separation allows the interface to remain stable while the dataset change
 
 The JavaScript maintains the current configuration state:
 
+```javascript
 {
   collection: '',
   fabric: '',
   leg: 'Wood',
   view: 'frontal'
 }
+```
 
 The state is then used to determine which visual render should be displayed. The conceptual resolution flow is:
 
+```text
 product.slug
       ↓
 collection
@@ -303,6 +310,7 @@ fabric
 leg
       ↓
 render URL
+```
 
 ## 💡 Why Vanilla JavaScript?
 
@@ -330,28 +338,31 @@ Touch / swipe behavior
 
 The demo uses optimized browser-ready assets:
 
-images/
-├── productos/
-│   └── sala-click-clack-jumbo-completa/
-│       ├── suiza/
-│       └── boreal/
-│           └── patas/
-│               ├── madera/
-│               ├── aluminio/
-│               └── plastico/
+```text
+📁images/
+├──📁productos/
+│   └──📁sala-click-clack-jumbo-completa/
+│       ├──📁suiza/
+│       └──📁boreal/
+│           └──📁patas/
+│               ├──📁madera/
+│               ├──📁aluminio/
+│               └──📁plastico/
 │
-└── telas/
-    ├── suiza/
-    └── boreal/
+└──📁telas/
+    ├──📁suiza/
+    └──📁boreal/
+```
 
 Product render paths reflect the configuration they represent. For example:
 
-boreal → patas → madera → muestra-01.webp
+> **boreal → patas → madera → muestra-01.webp**
 
 ## 🖼️ Visual Asset Pipeline
 
 The visual production workflow is separated from the application logic:
 
+```text
 Base furniture image
         ↓
 Fabric / material reference
@@ -365,33 +376,36 @@ WebP optimization
 Catalog mapping
         ↓
 Interactive frontend
+```
 
 This means the frontend does not need to be redesigned whenever additional render assets are produced.
 
 ## 📂 Project Structure
 
-portfolio-demo/
+```text
+📂portfolio-demo/
 │
-├── css/
-│   └── styles.css
+├──📂css/
+│   └──📄styles.css
 │
-├── data/
-│   └── catalogo.json
+├──📂data/
+│   └──📄catalogo.json
 │
-├── images/
-│   ├── productos/
-│   │   └── sala-click-clack-jumbo-completa/
+├──📂images/
+│   ├──📂productos/
+│   │   └──📂sala-click-clack-jumbo-completa/
 │   │
-│   └── telas/
-│       ├── boreal/
-│       └── suiza/
+│   └──📂telas/
+│       ├──📂boreal/
+│       └──📂suiza/
 │
-├── js/
+├──📂js/
 │   └── main.js
 │
-├── index.html
-├── .gitignore
-└── README.md
+├──📄index.html
+├──📄.gitignore
+└──📄README.md
+```
 
 ## 🔗 Relationship to the Original Project
 
@@ -445,51 +459,49 @@ The distinction is intentional. The original/ repository demonstrates the comp
 
 This version intentionally does not include the complete production stack. It excludes:
 
-PostgreSQL
+* ❌PostgreSQL
 
-Express
+* ❌Express
 
-EJS
+* ❌EJS
 
-Backend APIs
+* ❌Backend APIs
 
-Authentication
+* ❌Authentication
 
-Administration tooling
+* ❌Administration tooling
 
-Production monitoring
+* ❌Production monitoring
 
-CI/CD
+* ❌CI/CD
 
-The complete business catalog
+* ❌The complete business catalog
 
-These omissions are deliberate and exist to keep the public demonstration lightweight and instantly accessible.
+✅These omissions are deliberate and exist to keep the public demonstration lightweight and instantly accessible.
 
 ## 🔮 Future Extensions
 
 The configuration model can be expanded with additional dimensions such as:
 
-Fabric + Leg Type + Cushion configuration + Material + Additional components
+## **Fabric + Leg Type + Cushion configuration + Material + Additional components**
 
-The same approach could also support richer visual experiences such as 360-degree product presentation.
+* The same approach could also support richer visual experiences such as 360-degree product presentation.
 
 ## 📖 Portfolio Context
 
-This demo is based on an MVP developed for a real furniture manufacturing business. The business ultimately decided not to proceed with production deployment because its existing sales workflow did not currently require the additional operational overhead.
-
-The implementation is therefore presented as a technical portfolio case study rather than as a production storefront.
+> This demo is based on an MVP developed for a real furniture manufacturing business. The business ultimately decided not to proceed with production deployment because its existing sales workflow did not currently require the additional operational overhead. The implementation is therefore presented as a technical portfolio case study rather than as a production storefront.
 
 ## 🚀 Deployment
 
 This directory is designed to be compatible with static hosting platforms such as:
 
-GitHub Pages (currently deployed)
+* GitHub Pages (currently deployed)
 
-Netlify
+* Netlify
 
-Vercel
+* Vercel
 
-Cloudflare Pages
+* Cloudflare Pages
 
 The published demo requires only the files contained within this directory and does not require a database or private server-side infrastructure.
 
@@ -497,11 +509,11 @@ The published demo requires only the files contained within this directory and
 
 Option 1: Direct browser access
 
-Clone the repository.
+* 1.1:  Clone the repository.
 
-Navigate to portfolio-demo/.
+* 1.2: Navigate to portfolio-demo/.
 
-Open index.html in your browser.
+* 1.3: Open index.html in your browser.
 
 # ⚠️ Note: Due to CORS restrictions, opening the file directly via file:// may block the JSON fetch. Use a local server instead.
 
@@ -515,7 +527,7 @@ python -m http.server 8080
 
 Then open: http://localhost:8080
 
-📊 Key Metrics
+## 📊 Key Metrics
 
 Metric
 
